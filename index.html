@@ -380,6 +380,163 @@
             margin-bottom: 0.5rem;
         }
 
+        /* Contact Section */
+        .contact-section {
+            padding: 100px 0;
+            background: var(--light);
+        }
+
+        .contact-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .contact-header-box {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+        }
+
+        .contact-header-box h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .contact-header-box p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        .contact-form-section {
+            padding: 40px;
+        }
+
+        .form-grid {
+            display: grid;
+            gap: 25px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-field {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-field label {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--dark);
+            font-size: 0.95rem;
+        }
+
+        .form-field input,
+        .form-field textarea,
+        .form-field select {
+            padding: 14px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            background: #fafafa;
+        }
+
+        .form-field input:focus,
+        .form-field textarea:focus,
+        .form-field select:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: white;
+            box-shadow: 0 0 0 4px rgba(0, 102, 204, 0.1);
+        }
+
+        .form-field textarea {
+            resize: vertical;
+            min-height: 140px;
+        }
+
+        .submit-button {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 16px 40px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 102, 204, 0.3);
+        }
+
+        .submit-button:active {
+            transform: translateY(0);
+        }
+
+        .success-alert {
+            display: none;
+            background: #10b981;
+            color: white;
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .contact-info-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 40px;
+            background: #f9fafb;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .info-card {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .info-icon-box {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .info-card h3 {
+            font-size: 1rem;
+            color: var(--dark);
+            margin-bottom: 8px;
+        }
+
+        .info-card p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
         /* CTA Section */
         .cta-section {
             padding: 100px 0;
@@ -483,6 +640,22 @@
             .features-grid, .steps, .benefits-grid {
                 grid-template-columns: 1fr;
             }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-header-box h2 {
+                font-size: 2rem;
+            }
+
+            .contact-form-section {
+                padding: 25px;
+            }
         }
     </style>
 </head>
@@ -498,11 +671,8 @@
                 <li><a href="#features">Features</a></li>
                 <li><a href="#how-it-works">How It Works</a></li>
                 <li><a href="#benefits">Benefits</a></li>
-                <li><a href="#contact">Contact us</a></li>
+                <li><a href="#contact">Contact Us</a></li>
             </ul>
-            <!--
-            <a href="#contact" class="cta-btn">Request Demo</a>
-            -->
         </div>
     </nav>
 
@@ -510,9 +680,6 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <!--
-                <h1>AI-Powered Doctor Assistant for Smarter Healthcare</h1>
-                -->
                 <h1>Doctor Assistant for Smarter Healthcare</h1>
                 <p>Enhance clinical decisions, reduce prescription errors, and improve patient outcomes with intelligent automation.</p>
                 <div class="hero-buttons">
@@ -520,30 +687,6 @@
                     <a href="#features" class="btn-secondary">Learn More</a>
                 </div>
             </div>
-            <!--
-            <div class="hero-image">
-                <div class="hero-visual">
-                    <div class="visual-grid">
-                        <div class="visual-card">
-                            <div class="icon">🤖</div>
-                            <h4>AI Diagnosis Support</h4>
-                        </div>
-                        <div class="visual-card">
-                            <div class="icon">💊</div>
-                            <h4>Smart Prescriptions</h4>
-                        </div>
-                        <div class="visual-card">
-                            <div class="icon">⚠️</div>
-                            <h4>Drug Interaction Alerts</h4>
-                        </div>
-                        <div class="visual-card">
-                            <div class="icon">🎤</div>
-                            <h4>Voice-to-Text</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            -->
         </div>
     </section>
 
@@ -560,34 +703,12 @@
                     <h3>Patient Arrival Summary</h3>
                     <p>Consolidated patient information including demographics, complaints, allergies, and chronic conditions displayed instantly at consultation start.</p>
                 </div>
-                <!--
-                <div class="feature-card">
-                    <div class="feature-icon">🧠</div>
-                    <h3>AI-Assisted Diagnosis</h3>
-                    <p>Advanced AI analyzes symptoms and medical history to suggest possible diagnoses, with mandatory doctor confirmation for safety.</p>
-                </div>
-                -->
-                <!--
-                <div class="feature-card">
-                    <div class="feature-icon">❓</div>
-                    <h3>Smart Follow-up Questions</h3>
-                    <p>AI suggests relevant follow-up questions based on symptoms and history. Doctors can accept, modify, or ignore suggestions.</p>
-                </div>
-                -->
 
                 <div class="feature-card">
                     <div class="feature-icon">📝</div>
                     <h3>Automated Prescription Drafts</h3>
                     <p>AI generates prescription drafts automatically, fully editable until doctor approval. No prescription issued without confirmation.</p>
                 </div>
-
-                <!--
-                <div class="feature-card">
-                    <div class="feature-icon">🎤</div>
-                    <h3>Voice-to-Text Capture</h3>
-                    <p>Dictate symptoms and notes using speech-to-text technology, converting voice input to structured clinical documentation.</p>
-                </div>
-                -->
 
                 <div class="feature-card">
                     <div class="feature-icon">✏️</div>
@@ -606,14 +727,6 @@
                     <h3>Telemedicine Support</h3>
                     <p>Conduct video/audio consultations remotely with full prescription capabilities during teleconsultation sessions.</p>
                 </div>
-
-                <!--
-                <div class="feature-card">
-                    <div class="feature-icon">💊</div>
-                    <h3>Smart Medicine Suggestions</h3>
-                    <p>AI-powered medicine recommendations based on patient age, weight, and diagnosis with pediatric and geriatric rules applied.</p>
-                </div>
-                -->
 
                 <div class="feature-card">
                     <div class="feature-icon">📄</div>
@@ -734,7 +847,85 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
+    <!-- Contact Us Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-header-box">
+                    <h2>Get In Touch</h2>
+                    <p>Have questions about DoctorsMitra? We'd love to hear from you!</p>
+                </div>
+
+                <div class="contact-form-section">
+                    <div class="success-alert" id="successAlert">
+                        ✓ Message sent successfully! We'll get back to you soon.
+                    </div>
+
+                    <form id="contactForm" class="form-grid">
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="name">Full Name *</label>
+                                <input type="text" id="name" name="name" required placeholder="Dr. John Doe">
+                            </div>
+
+                            <div class="form-field">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required placeholder="john@example.com">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" placeholder="+91 98XXX XXXXX">
+                            </div>
+
+                            <div class="form-field">
+                                <label for="subject">Subject *</label>
+                                <select id="subject" name="subject" required>
+                                    <option value="">Select a subject</option>
+                                    <option value="demo">Request Demo</option>
+                                    <option value="pricing">Pricing Information</option>
+                                    <option value="support">Technical Support</option>
+                                    <option value="partnership">Partnership Opportunity</option>
+                                    <option value="feedback">Feedback</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="message">Your Message *</label>
+                            <textarea id="message" name="message" required placeholder="Tell us how we can help you..."></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-button">Send Message</button>
+                    </form>
+                </div>
+
+                <div class="contact-info-cards">
+                    <div class="info-card">
+                        <div class="info-icon-box">📧</div>
+                        <h3>Email Us</h3>
+                        <p>info@doctorsmitra.com</p>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon-box">📞</div>
+                        <h3>Call Us</h3>
+                        <p>+91 129-28425452</p>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">📍</div>
+                        <h3>Visit Us</h3>
+                        <p>102, SRS CORPORATE TOWER, NH-19, Sector 31, Faridabad, Haryana 121003, India</p>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+        <!-- CTA Section -->
     <section class="cta-section" id="contact">
         <div class="container">
             <h2>Ready to Transform Your Practice?</h2>
@@ -742,8 +933,8 @@
             <div class="hero-buttons">
                 <!--
                 <a href="#" class="btn-primary">Schedule a Demo</a>
-                -->
                 <a href="#" class="btn-secondary">Contact Sales</a>
+                -->
             </div>
         </div>
     </section>
@@ -790,6 +981,7 @@
             </div>
         </div>
     </footer>
+
 
     <script>
         // Smooth scrolling for navigation links
@@ -838,6 +1030,38 @@
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(el);
         });
+
+        /* contact-us scipt */
+
+        const form = document.getElementById('contactForm');
+        const successAlert = document.getElementById('successAlert');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value,
+                timestamp: new Date().toISOString()
+            };
+
+            console.log('Form submitted:', formData);
+
+            successAlert.style.display = 'block';
+            form.reset();
+
+            setTimeout(() => {
+                successAlert.style.display = 'none';
+            }, 5000);
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
     </script>
+
 </body>
 </html>
+
+
