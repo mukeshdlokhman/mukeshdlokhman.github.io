@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoctorsMitra</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+</head>
+
+<body>
+
+    <!-- navbar-->
+    <div id="navbar"></div>
+    <script>
+        fetch('partials/navbar.html')
+            .then(response => response.text())
+            .then(html => document.getElementById('navbar').innerHTML = html);
+    </script>
+
+
+
+
+    <!-- header -->
+    <div id="hero"></div>
+    <script>
+        fetch('partials/header.html')
+            .then(response => response.text())
+            .then(html => document.getElementById('hero').innerHTML = html);
+    </script>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <h2>Ready to Transform Your Practice?</h2>
+            <p>Join hundreds of doctors already using DoctorsMitra to deliver better patient care</p>
+            <div class="hero-buttons">
+                <!--
+                <a href="#" class="btn-primary">Schedule a Demo</a>
+                <a href="#" class="btn-secondary">Contact Sales</a>
+                -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+    <script>
+        fetch('partials/footer.html')
+            .then(response => response.text())
+            .then(html => document.getElementById('footer').innerHTML = html);
+    </script>
+    <script src="assets/js/main.js" defer></script>
+
+    <body>
+
+</html>

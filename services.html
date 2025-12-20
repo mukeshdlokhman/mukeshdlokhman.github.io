@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoctorsMitra</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <div id="navbar"></div>
+    <script>
+        fetch('partials/navbar.html')
+            .then(response => response.text())
+            .then(html => document.getElementById('navbar').innerHTML = html);
+    </script>
+
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Powerful Features for Modern Healthcare</h2>
+                <p>Everything you need to deliver exceptional patient care efficiently</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📋</div>
+                    <h3>Patient Arrival Summary</h3>
+                    <p>Consolidated patient information including demographics, complaints, allergies, and chronic
+                        conditions displayed instantly at consultation start.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📝</div>
+                    <h3>Automated Prescription Drafts</h3>
+                    <p>AI generates prescription drafts automatically, fully editable until doctor approval. No
+                        prescription issued without confirmation.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">✏️</div>
+                    <h3>Editable Prescriptions</h3>
+                    <p>Full control over medicines, dosage, frequency, and duration with complete version history
+                        maintained for compliance.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Answer Locking System</h3>
+                    <p>Diagnosis and notes automatically lock after prescription finalization. Addendum system for any
+                        required changes.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">💻</div>
+                    <h3>Telemedicine Support</h3>
+                    <p>Conduct video/audio consultations remotely with full prescription capabilities during
+                        teleconsultation sessions.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📄</div>
+                    <h3>Digital Prescription Builder</h3>
+                    <p>Structured templates for common conditions that are fully customizable and reusable for efficient
+                        prescription creation.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">⚠️</div>
+                    <h3>Drug Interaction Checking</h3>
+                    <p>Real-time alerts for drug interactions and contraindications with severity-based warnings to
+                        prevent medication errors.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📤</div>
+                    <h3>Multi-Format Export</h3>
+                    <p>Export prescriptions as PDF, WhatsApp images, or SMS summaries for convenient patient access and
+                        record-keeping.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Patient History Dashboard</h3>
+                    <p>Unified timeline view of all diagnoses, prescriptions, and medical reports for comprehensive
+                        patient tracking.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Quick Patient Search</h3>
+                    <p>Instantly find patients by name, phone number, or patient ID for fast access to medical records.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🚨</div>
+                    <h3>Allergy Tracking</h3>
+                    <p>Prominent allergy warnings with mandatory acknowledgment for high-risk medications to ensure
+                        patient safety.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Auto-Fill Templates</h3>
+                    <p>Smart auto-fill prescription templates based on diagnosis and patient profile, fully editable by
+                        the doctor.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+    <script>
+        fetch('partials/footer.html')
+            .then(response => response.text())
+            .then(html => document.getElementById('footer').innerHTML = html);
+    </script>
+    <script src="assets/js/main.js" defer></script>
+
+</body>
+
+</html>

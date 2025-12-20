@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoctorsMitra</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <div id="navbar"></div>
+    <script>
+        fetch('partials/navbar.html')
+            .then(response => response.text())
+            .then(html => document.getElementById('navbar').innerHTML = html);
+    </script>
+
+    <!-- Benefits Section -->
+    <section class="benefits" id="benefits">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose DoctorsMitra?</h2>
+                <p>Transform your practice with intelligent automation</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="icon">⚡</div>
+                    <h3>50% Faster Consultations</h3>
+                    <p>Streamline workflows and reduce documentation time significantly</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="icon">✅</div>
+                    <h3>95% Error Reduction</h3>
+                    <p>Minimize prescription errors with intelligent drug interaction checking</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="icon">😊</div>
+                    <h3>Enhanced Patient Care</h3>
+                    <p>Spend more time with patients, less time on paperwork</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="icon">🔐</div>
+                    <h3>HIPAA Compliant</h3>
+                    <p>Enterprise-grade security and full regulatory compliance</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="icon">📱</div>
+                    <h3>Multi-Device Access</h3>
+                    <p>Work from desktop, tablet, or mobile with seamless sync</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="icon">🎓</div>
+                    <h3>Continuous Learning</h3>
+                    <p>AI improves over time, adapting to your practice patterns</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <div id="footer"></div>
+    <script>
+        fetch('partials/footer.html')
+            .then(response => response.text())
+            .then(html => document.getElementById('footer').innerHTML = html);
+    </script>
+    <script src="assets/js/main.js" defer></script>
+
+</body>
+
+</html>

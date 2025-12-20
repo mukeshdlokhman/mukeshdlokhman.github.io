@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoctorsMitra</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <div id="navbar"></div>
+    <script>
+        fetch('partials/navbar.html')
+            .then(response => response.text())
+            .then(html => document.getElementById('navbar').innerHTML = html);
+    </script>
+
+    <!-- How It Works -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2>How DoctorsMitra Works</h2>
+                <p>Simple, efficient workflow designed for busy healthcare professionals</p>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Patient Check-In</h3>
+                    <p>System automatically fetches and displays comprehensive patient summary with history and
+                        allergies</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Consultation & Diagnosis</h3>
+                    <p>AI suggests diagnoses and follow-up questions while you examine the patient using voice or
+                        keyboard input</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Prescription Generation</h3>
+                    <p>AI drafts prescription with drug interaction checks. Review, edit, and approve with full control
+                    </p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Export & Follow-up</h3>
+                    <p>Export prescription in multiple formats and schedule follow-up appointments seamlessly</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <div id="footer"></div>
+    <script>
+        fetch('partials/footer.html')
+            .then(response => response.text())
+            .then(html => document.getElementById('footer').innerHTML = html);
+    </script>
+    <script src="assets/js/main.js" defer></script>
+
+</body>
+
+</html>

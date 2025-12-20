@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoctorsMitra</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+
+</head>
+
+<body>
+    <!-- Navigation -->
+    <div id="navbar"></div>
+    <script>
+        fetch('partials/navbar.html')
+            .then(response => response.text())
+            .then(html => document.getElementById('navbar').innerHTML = html);
+    </script>
+
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="contact-wrapper two-column">
+
+                <!-- LEFT COLUMN : CONTACT FORM -->
+                <div class="contact-left">
+                    <h2>Get In Touch</h2>
+                    <p>Have questions about DoctorsMitra? Send us a message.</p>
+
+                    <div class="success-alert" id="successAlert">
+                        ✓ Message sent successfully! We'll get back to you soon.
+                    </div>
+
+                    <form id="contactForm" class="form-grid">
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label>Full Name *</label>
+                                <input type="text" required placeholder="Dr. John Doe">
+                            </div>
+
+                            <div class="form-field">
+                                <label>Email *</label>
+                                <input type="email" required placeholder="john@example.com">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label>Phone</label>
+                                <input type="tel" placeholder="+91 98XXX XXXXX">
+                            </div>
+
+                            <div class="form-field">
+                                <label>Subject *</label>
+                                <select required>
+                                    <option value="">Select</option>
+                                    <option>Request Demo</option>
+                                    <option>Pricing</option>
+                                    <option>Support</option>
+                                    <option>Partnership</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-field">
+                            <label>Message *</label>
+                            <textarea required placeholder="Write your message..."></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-button">Send Message</button>
+                    </form>
+                </div>
+
+                <!-- RIGHT COLUMN : CONTACT DETAILS + MAP -->
+                <div class="contact-right">
+
+                    <div class="contact-info-box">
+                        <h3>Contact Information</h3>
+
+                        <div class="info-item">
+                            <strong>Email:</strong>
+                            <p>info@doctorsmitra.com</p>
+                        </div>
+
+                        <div class="info-item">
+                            <strong>Phone:</strong>
+                            <p>+91 129-28425452</p>
+                        </div>
+
+                        <div class="info-item">
+                            <strong>Address:</strong>
+                            <p>
+                                102, SRS Corporate Tower,<br>
+                                NH-19, Sector 31,<br>
+                                Faridabad, Haryana 121003, India
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="map-box">
+                        <iframe src="https://www.google.com/maps?q=SRS%20Corporate%20Tower%20Faridabad&output=embed"
+                            loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+    <script>
+        fetch('partials/footer.html')
+            .then(response => response.text())
+            .then(html => document.getElementById('footer').innerHTML = html);
+    </script>
+    <script src="assets/js/main.js" defer></script>
+
+</body>
+
+</html>

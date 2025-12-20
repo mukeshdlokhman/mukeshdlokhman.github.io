@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoctorsMitra</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <div id="navbar"></div>
+    <script>
+        fetch('partials/navbar.html')
+            .then(response => response.text())
+            .then(html => document.getElementById('navbar').innerHTML = html);
+    </script>
+
+
+
+    <!-- HERO -->
+    <section class="about-hero">
+        <div class="container">
+            <h1>About DoctorsMitra</h1>
+            <p>
+                Empowering doctors with intelligent technology to deliver safer,
+                faster, and smarter healthcare.
+            </p>
+        </div>
+    </section>
+
+    <!-- COMPANY HISTORY -->
+    <section class="about-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our History</h2>
+                <p>How DoctorsMitra began and evolved into an AI-powered healthcare platform</p>
+            </div>
+
+            <div class="content-grid">
+                <div class="content-box">
+                    <h3>Our Beginning</h3>
+                    <p>
+                        DoctorsMitra was conceived as part of the DockerMitra Hospital
+                        Management System with a clear vision: to reduce clinical
+                        documentation burden and enhance decision-making for doctors.
+                    </p>
+                </div>
+
+                <div class="content-box">
+                    <h3>Our Evolution</h3>
+                    <p>
+                        With growing adoption of digital healthcare and telemedicine,
+                        DoctorsMitra evolved into an AI-assisted doctor companion,
+                        integrating smart prescriptions, patient history tracking,
+                        and clinical safety checks.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMPANY PROFILE -->
+    <section class="about-section alt">
+        <div class="container">
+            <div class="section-header">
+                <h2>Company Profile</h2>
+                <p>Who we are and what we stand for</p>
+            </div>
+
+            <div class="content-grid">
+                <div class="content-box">
+                    <h3>Who We Are</h3>
+                    <p>
+                        DoctorsMitra is a healthcare technology solution designed
+                        specifically for doctors, clinics, and hospitals to streamline
+                        consultations and improve patient outcomes.
+                    </p>
+                </div>
+
+                <div class="content-box">
+                    <h3>Our Mission</h3>
+                    <p>
+                        Our mission is to assist doctors with intelligent tools that
+                        enhance efficiency, reduce errors, and allow them to focus
+                        more on patient care rather than paperwork.
+                    </p>
+                </div>
+
+                <div class="content-box">
+                    <h3>Our Vision</h3>
+                    <p>
+                        To become a trusted AI-powered clinical assistant used by
+                        healthcare professionals across India and globally.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="about-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Services</h2>
+                <p>Brief overview of what DoctorsMitra offers</p>
+            </div>
+
+            <div class="services-list">
+                <div class="service-item">
+                    <h4>AI Doctor Assistant</h4>
+                    <p>Supports doctors with diagnosis suggestions, follow-up questions, and clinical insights.</p>
+                </div>
+
+                <div class="service-item">
+                    <h4>Smart Prescription Management</h4>
+                    <p>AI-generated prescriptions with full doctor control and safety checks.</p>
+                </div>
+
+                <div class="service-item">
+                    <h4>Patient History & Records</h4>
+                    <p>Unified patient timeline for diagnoses, prescriptions, and reports.</p>
+                </div>
+
+                <div class="service-item">
+                    <h4>Telemedicine Support</h4>
+                    <p>Enable secure remote consultations with digital prescription support.</p>
+                </div>
+
+                <div class="service-item">
+                    <h4>Compliance & Safety</h4>
+                    <p>Drug interaction checks, allergy alerts, and audit-ready records.</p>
+                </div>
+
+                <div class="service-item">
+                    <h4>HMS Integration</h4>
+                    <p>Seamless integration with DockerMitra Hospital Management System.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <div id="footer"></div>
+    <script>
+        fetch('partials/footer.html')
+            .then(response => response.text())
+            .then(html => document.getElementById('footer').innerHTML = html);
+    </script>
+    <script src="assets/js/main.js" defer></script>
+
+</body>
+
+</html>
