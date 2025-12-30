@@ -4,56 +4,911 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DoctorsMitra</title>
-    <link rel="icon" href="/assets/images/logo.svg" type="image/svg+xml">
+    <title>DoctorsMitra - AI-Powered Healthcare Assistant</title>
+    <link rel="icon" href="/assets/images/logo.jpeg" type="image/jpeg">
     <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        :root {
+            --primary: #0066cc;
+            --primary-dark: #004c99;
+            --secondary: #00c896;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+            --accent: #ff6b6b;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            overflow-x: hidden;
+            background: var(--light);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section - Ultra Attractive */
+        .hero-section {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            padding: 120px 0 80px;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+            animation: pulse 15s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.05)" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,144C960,149,1056,139,1152,122.7C1248,107,1344,85,1392,74.7L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            background-position: bottom;
+        }
+
+        .hero-content-wrapper {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text {
+            color: white;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            animation: slideInDown 0.8s ease;
+        }
+
+        .hero-badge .badge-icon {
+            width: 20px;
+            height: 20px;
+            background: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+
+        .hero-text h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            animation: slideInLeft 0.8s ease;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-text h1 .highlight {
+            background: linear-gradient(90deg, #fff, var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-text p {
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+            line-height: 1.8;
+            animation: slideInLeft 0.8s ease 0.2s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            animation: slideInLeft 0.8s ease 0.4s both;
+        }
+
+        .btn {
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        /* Hero Visual - 3D Cards */
+        .hero-visual {
+            position: relative;
+            animation: slideInRight 1s ease;
+        }
+
+        .hero-cards-container {
+            position: relative;
+            height: 500px;
+        }
+
+        .floating-card {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .floating-card:hover {
+            transform: translateY(-10px) scale(1.05);
+        }
+
+        .floating-card-1 {
+            top: 0;
+            left: 0;
+            width: 280px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-card-2 {
+            top: 120px;
+            right: 0;
+            width: 250px;
+            animation: float 6s ease-in-out infinite 2s;
+        }
+
+        .floating-card-3 {
+            bottom: 0;
+            left: 50px;
+            width: 260px;
+            animation: float 6s ease-in-out infinite 4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .floating-card h3 {
+            font-size: 1.2rem;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .floating-card p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .card-stat {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        /* Trusted By Section */
+        .trusted-section {
+            padding: 40px 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            z-index: 2;
+        }
+
+        .trusted-content {
+            text-align: center;
+            color: white;
+        }
+
+        .trusted-content p {
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .trust-badge {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .trust-badge-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .trust-badge span {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Stats Banner */
+        .stats-banner {
+            background: var(--dark);
+            padding: 80px 0;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(45deg, transparent 30%, rgba(0, 200, 150, 0.1) 30%, rgba(0, 200, 150, 0.1) 70%, transparent 70%);
+            background-size: 100px 100px;
+            animation: slide 20s linear infinite;
+        }
+
+        @keyframes slide {
+            0% { background-position: 0 0; }
+            100% { background-position: 100px 100px; }
+        }
+
+        .stats-grid {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+            text-align: center;
+        }
+
+        .stat-box {
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .stat-box:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .stat-number-large {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .stat-box p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Features Showcase */
+        .features-showcase {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            display: inline-block;
+            padding: 8px 20px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .features-grid-modern {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+        }
+
+        .feature-card-modern {
+            background: var(--light);
+            padding: 3rem 2.5rem;
+            border-radius: 20px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+        }
+
+        .feature-card-modern::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .feature-card-modern:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-card-modern:hover {
+            background: white;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            transform: translateY(-10px);
+            border-color: var(--primary);
+        }
+
+        .feature-icon-modern {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0, 102, 204, 0.3);
+        }
+
+        .feature-card-modern h3 {
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .feature-card-modern p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: gap 0.3s ease;
+        }
+
+        .feature-link:hover {
+            gap: 12px;
+        }
+
+        /* CTA Section - Enhanced */
+        .cta-section {
+            padding: 120px 0;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: rotate 60s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-section h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-section p {
+            font-size: 1.4rem;
+            margin-bottom: 3rem;
+            opacity: 0.95;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Animations */
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .hero-content-wrapper {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 3rem;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-cards-container {
+                height: 400px;
+                margin-top: 3rem;
+            }
+
+            .floating-card {
+                width: 200px !important;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .features-grid-modern {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-section h2 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-text p {
+                font-size: 1.1rem;
+            }
+
+            .btn {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-number-large {
+                font-size: 2.5rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .floating-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- navbar-->
+    <!-- Navbar -->
     <div id="navbar"></div>
-    <script>
-        fetch('partials/navbar.html')
-            .then(response => response.text())
-            .then(html => document.getElementById('navbar').innerHTML = html);
-    </script>
 
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content-wrapper">
+                <div class="hero-text">
+                    <div class="hero-badge">
+                        <span class="badge-icon">✨</span>
+                        <span>AI-Powered Healthcare Assistant</span>
+                    </div>
+                    <h1>
+                        Transform Your Practice with
+                        <span class="highlight">DoctorsMitra</span>
+                    </h1>
+                    <p>
+                        Enhance clinical decisions, reduce prescription errors by 95%, and deliver exceptional patient care with intelligent automation trusted by 500+ doctors.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="contact.html" class="btn btn-primary">
+                            Get Started Free
+                            <span>→</span>
+                        </a>
+                        <a href="features.html" class="btn btn-secondary">
+                            Explore Features
+                            <span>🚀</span>
+                        </a>
+                    </div>
+                </div>
 
+                <div class="hero-visual">
+                    <div class="hero-cards-container">
+                        <div class="floating-card floating-card-1">
+                            <div class="card-icon">⚡</div>
+                            <h3>50% Faster</h3>
+                            <p>Streamline workflows and reduce documentation time significantly</p>
+                            <div class="card-stat">
+                                <span class="stat-number">2.5x</span>
+                                <span class="stat-label">More patients per day</span>
+                            </div>
+                        </div>
 
+                        <div class="floating-card floating-card-2">
+                            <div class="card-icon">✅</div>
+                            <h3>95% Accurate</h3>
+                            <p>AI-powered drug interaction checking prevents medication errors</p>
+                            <div class="card-stat">
+                                <span class="stat-number">0</span>
+                                <span class="stat-label">Critical errors</span>
+                            </div>
+                        </div>
 
-    <!-- header -->
-    <div id="hero"></div>
-    <script>
-        fetch('partials/header.html')
-            .then(response => response.text())
-            .then(html => document.getElementById('hero').innerHTML = html);
-    </script>
+                        <div class="floating-card floating-card-3">
+                            <div class="card-icon">🔒</div>
+                            <h3>HIPAA Compliant</h3>
+                            <p>Enterprise-grade security with full regulatory compliance</p>
+                            <div class="card-stat">
+                                <span class="stat-number">100%</span>
+                                <span class="stat-label">Data secure</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Trusted By Section -->
+        <div class="trusted-section">
+            <div class="container">
+                <div class="trusted-content">
+                    <p>Trusted by Healthcare Professionals</p>
+                    <div class="trust-badges">
+                        <div class="trust-badge">
+                            <div class="trust-badge-icon">🏥</div>
+                            <span>50+ Hospitals</span>
+                        </div>
+                        <div class="trust-badge">
+                            <div class="trust-badge-icon">👨‍⚕️</div>
+                            <span>500+ Doctors</span>
+                        </div>
+                        <div class="trust-badge">
+                            <div class="trust-badge-icon">🌟</div>
+                            <span>4.9/5 Rating</span>
+                        </div>
+                        <div class="trust-badge">
+                            <div class="trust-badge-icon">🔐</div>
+                            <span>ISO Certified</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Banner -->
+    <section class="stats-banner">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <span class="stat-number-large">500+</span>
+                    <p>Active Doctors</p>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number-large">50K+</span>
+                    <p>Patients Served</p>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number-large">95%</span>
+                    <p>Error Reduction</p>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number-large">24/7</span>
+                    <p>Support Available</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Showcase -->
+    <section class="features-showcase">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">⚡ Powerful Features</span>
+                <h2>Everything You Need for Modern Healthcare</h2>
+                <p>Deliver exceptional patient care with intelligent automation and cutting-edge technology</p>
+            </div>
+
+            <div class="features-grid-modern">
+                <div class="feature-card-modern">
+                    <div class="feature-icon-modern">📋</div>
+                    <h3>Patient Summary</h3>
+                    <p>Consolidated patient information including demographics, complaints, allergies, and chronic conditions displayed instantly at consultation start.</p>
+                    <a href="features.html" class="feature-link">
+                        Learn more
+                        <span>→</span>
+                    </a>
+                </div>
+
+                <div class="feature-card-modern">
+                    <div class="feature-icon-modern">📝</div>
+                    <h3>Smart Prescriptions</h3>
+                    <p>AI generates prescription drafts automatically, fully editable until doctor approval. No prescription issued without confirmation.</p>
+                    <a href="features.html" class="feature-link">
+                        Learn more
+                        <span>→</span>
+                    </a>
+                </div>
+
+                <div class="feature-card-modern">
+                    <div class="feature-icon-modern">⚠️</div>
+                    <h3>Drug Interaction Alerts</h3>
+                    <p>Real-time alerts for drug interactions and contraindications with severity-based warnings to prevent medication errors.</p>
+                    <a href="features.html" class="feature-link">
+                        Learn more
+                        <span>→</span>
+                    </a>
+                </div>
+
+                <div class="feature-card-modern">
+                    <div class="feature-icon-modern">💻</div>
+                    <h3>Telemedicine Ready</h3>
+                    <p>Conduct video/audio consultations remotely with full prescription capabilities during teleconsultation sessions.</p>
+                    <a href="features.html" class="feature-link">
+                        Learn more
+                        <span>→</span>
+                    </a>
+                </div>
+
+                <div class="feature-card-modern">
+                    <div class="feature-icon-modern">📊</div>
+                    <h3>Patient Dashboard</h3>
+                    <p>Unified timeline view of all diagnoses, prescriptions, and medical reports for comprehensive patient tracking.</p>
+                    <a href="features.html" class="feature-link">
+                        Learn more
+                        <span>→</span>
+                    </a>
+                </div>
+
+                <div class="feature-card-modern">
+                    <div class="feature-icon-modern">🔐</div>
+                    <h3>Secure & Compliant</h3>
+                    <p>Enterprise-grade security with HIPAA compliance and full regulatory adherence for peace of mind.</p>
+                    <a href="features.html" class="feature-link">
+                        Learn more
+                        <span>→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- CTA Section -->
-    <section class="cta-section" id="contact">
+    <section class="cta-section">
         <div class="container">
-            <h2>Ready to Transform Your Practice?</h2>
-            <p>Join hundreds of doctors already using DoctorsMitra to deliver better patient care</p>
-            <div class="hero-buttons">
-                <!--
-                <a href="#" class="btn-primary">Schedule a Demo</a>
-                <a href="#" class="btn-secondary">Contact Sales</a>
-                -->
+            <div class="cta-content">
+                <h2>Ready to Transform Your Practice?</h2>
+                <p>Join hundreds of doctors already using DoctorsMitra to deliver better patient care with intelligent automation</p>
+                <div class="hero-buttons">
+                    <!--
+                    <a href="contact.html" class="btn btn-primary">
+                        Schedule a Demo
+                        <span>📅</span>
+                    </a>
+                    -->
+                    <a href="services.html" class="btn btn-secondary">
+                        View All Services
+                        <span>→</span>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <div id="footer"></div>
+
     <script>
+        // Load navbar and footer
+        fetch('partials/navbar.html')
+            .then(response => response.text())
+            .then(html => document.getElementById('navbar').innerHTML = html)
+            .catch(err => console.log('Navbar not loaded'));
+
         fetch('partials/footer.html')
             .then(response => response.text())
-            .then(html => document.getElementById('footer').innerHTML = html);
-    </script>
-    <script src="assets/js/main.js" defer></script>
+            .then(html => document.getElementById('footer').innerHTML = html)
+            .catch(err => console.log('Footer not loaded'));
 
-    <body>
+        // Smooth scroll for internal links
+        document.addEventListener('click', (e) => {
+            if (e.target.tagName === 'A' && e.target.getAttribute('href').startsWith('#')) {
+                e.preventDefault();
+                const target = document.querySelector(e.target.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        });
+    </script>
+
+</body>
 
 </html>
