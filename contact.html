@@ -7,7 +7,7 @@
     <title>DoctorsMitra</title>
     <link rel="icon" href="/assets/images/logo.jpeg" type="image/jpeg">
     <link rel="stylesheet" href="assets/css/styles.css">
-
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
 </head>
 
@@ -49,19 +49,18 @@
                         <div class="form-row">
                             <div class="form-field">
                                 <label>Phone number</label>
-                                <input type="tel" id="phone" name="phone" placeholder="+91 98XXX XXXXX">
+                                <input type="tel" id="phone" name="phone" required placeholder="+91 98XXX XXXXX">
                             </div>
 
                             <div class="form-field">
                                 <label>Subject *</label>
                                 <select id="subject" name="subject" required>
                                     <option value="">Select a subject</option>
-                                    <option value="demo">Request Demo</option>
-                                    <option value="pricing">Pricing Information</option>
-                                    <option value="support">Technical Support</option>
-                                    <option value="partnership">Partnership Opportunity</option>
-                                    <option value="feedback">Feedbp">Partnership Opportunity</option>ack</option>
-                                    <option value="other">Other</option>
+                                    <option value="Demo">Request Demo</option>
+                                    <option value="Pricing">Pricing Information</option>
+                                    <option value="Support">Technical Support</option>
+                                    <option value="Partnership">Partnership Opportunity</option>
+                                    <option value="Other">Other</option>
                                 </select>
                             </div>
                         </div>
@@ -118,6 +117,40 @@
         fetch('partials/footer.html')
             .then(response => response.text())
             .then(html => document.getElementById('footer').innerHTML = html);
+    </script>
+    <script>
+        emailjs.init('7nf_T3TrVHtA2TbZo'); // Replace with your EmailJS user ID
+        document.getElementById('contactForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // Collect form data
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+
+            // Prepare the email parameters
+            const templateParams = {
+                from_name: name,
+                from_email: email,
+                phone: phone,
+                subject: subject,
+                message: message
+            };
+
+            // Send the email using EmailJS
+            emailjs.send('service_l6pd6sr', 'template_j5zpygd', templateParams) // Replace with your service ID and template ID
+                .then(function (response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    document.getElementById('successAlert').style.display = 'block';
+                    document.getElementById('contactForm').reset();
+                }, function (error) {
+                    console.log('FAILED...', error);
+                    alert('Failed to send message. Please try again later.');
+                });
+        });
+
     </script>
     <script src="assets/js/main.js" defer></script>
 
