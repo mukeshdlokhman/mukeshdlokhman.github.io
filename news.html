@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Healthcare News & Updates | DoctorsMitra</title>
+    <link rel="icon" href="/assets/images/logo.jpeg" type="image/jpeg">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0066cc;
+            --primary-dark: #004c99;
+            --secondary: #00c896;
+            --accent: #667eea;
+            --purple: #764ba2;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-green: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            --gradient-blue: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--light);
+        }
+
+        /* News Header */
+        .news-header {
+            background: var(--gradient-blue);
+            color: white;
+            padding: 100px 0 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .news-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.1)" d="M0,224L48,218.7C96,213,192,203,288,186.7C384,171,480,149,576,154.7C672,160,768,192,864,197.3C960,203,1056,181,1152,165.3C1248,149,1344,139,1392,133.3L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            opacity: 0.3;
+        }
+
+        .breaking-news {
+            position: absolute;
+            top: 20px;
+            left: 0;
+            right: 0;
+            background: #ef4444;
+            color: white;
+            padding: 10px;
+            font-weight: 600;
+            animation: blink 2s infinite;
+        }
+
+        .news-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .news-header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.95;
+            position: relative;
+        }
+
+        /* Live Updates */
+        .live-updates {
+            max-width: 1200px;
+            margin: -30px auto 40px;
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-left: 5px solid #ef4444;
+        }
+
+        .live-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 1rem;
+            color: #ef4444;
+            font-weight: 600;
+        }
+
+        .live-pulse {
+            width: 12px;
+            height: 12px;
+            background: #ef4444;
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+
+        .updates-feed {
+            display: flex;
+            overflow-x: auto;
+            gap: 2rem;
+            padding: 1rem 0;
+        }
+
+        .update-item {
+            flex: 0 0 auto;
+            padding: 1rem 1.5rem;
+            background: #fef2f2;
+            border-radius: 10px;
+            border-left: 3px solid #ef4444;
+        }
+
+        .update-time {
+            font-size: 0.8rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        /* News Categories */
+        .news-categories {
+            padding: 2rem 0;
+            background: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .category-tabs {
+            display: flex;
+            gap: 1rem;
+            overflow-x: auto;
+            padding: 1rem 0;
+        }
+
+        .category-tab {
+            padding: 12px 25px;
+            background: #f3f4f6;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+        }
+
+        .category-tab.active,
+        .category-tab:hover {
+            background: var(--gradient-blue);
+            color: white;
+        }
+
+        /* News Grid */
+        .news-grid-section {
+            padding: 3rem 0;
+            background: #f8fafc;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+        }
+
+        .main-news {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .news-card-large {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .news-image-large {
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .news-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--gradient-blue);
+            color: white;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .news-content-large {
+            padding: 2rem;
+        }
+
+        .news-content-large h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+            line-height: 1.4;
+        }
+
+        .news-content-large p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .news-meta-large {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #eee;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* Sidebar */
+        .news-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .sidebar-section {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .sidebar-section h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--gradient-blue);
+        }
+
+        .trending-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .trending-item {
+            padding: 1rem;
+            background: #f8fafc;
+            border-radius: 10px;
+            border-left: 3px solid var(--accent);
+            transition: all 0.3s ease;
+        }
+
+        .trending-item:hover {
+            transform: translateX(5px);
+            background: white;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .trending-item h5 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .trending-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        /* Quick News Grid */
+        .quick-news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .quick-news-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            border-top: 3px solid var(--secondary);
+            transition: all 0.3s ease;
+        }
+
+        .quick-news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .quick-news-card h5 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .quick-news-card p {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        /* Newsletter */
+        .newsletter-news {
+            background: var(--gradient-green);
+            color: white;
+            padding: 3rem 0;
+            margin: 4rem 0;
+            text-align: center;
+        }
+
+        .newsletter-news h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .newsletter-news form {
+            max-width: 500px;
+            margin: 2rem auto 0;
+            display: flex;
+            gap: 10px;
+        }
+
+        .newsletter-news input {
+            flex: 1;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+        }
+
+        .newsletter-news button {
+            background: white;
+            color: var(--secondary);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-news button:hover {
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        .news-footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+        }
+
+        /* Animations */
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(2); opacity: 0; }
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .news-header h1 { font-size: 2.5rem; }
+            .news-image-large { height: 200px; }
+            .news-content-large h3 { font-size: 1.5rem; }
+            .category-tabs { flex-wrap: wrap; }
+            .updates-feed { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <div id="navbar"></div>
+    <script>
+        fetch('partials/navbar.html')
+            .then(response => response.text())
+            .then(html => document.getElementById('navbar').innerHTML = html);
+    </script>
+
+    <!-- News Header -->
+    <header class="news-header">
+        <div class="breaking-news">
+            🚨 BREAKING: FDA approves first AI-powered autonomous diagnostic system for emergency rooms
+        </div>
+        <div class="container">
+            <h1>AI Healthcare News</h1>
+            <p>Latest updates, breakthroughs, and developments in artificial intelligence for healthcare</p>
+        </div>
+    </header>
+
+    <!-- Live Updates -->
+    <section class="live-updates">
+        <div class="container">
+            <div class="live-header">
+                <div class="live-pulse"></div>
+                LIVE UPDATES
+            </div>
+            <div class="updates-feed">
+                <div class="update-item">
+                    <div class="update-time">10:45 AM | Jan 15, 2025</div>
+                    <div>WHO releases new guidelines for AI in global health programs</div>
+                </div>
+                <div class="update-item">
+                    <div class="update-time">09:30 AM | Jan 15, 2025</div>
+                    <div>Google Health announces breakthrough in AI for rare disease diagnosis</div>
+                </div>
+                <div class="update-item">
+                    <div class="update-time">08:15 AM | Jan 15, 2025</div>
+                    <div>Indian govt allocates ₹500 crore for AI healthcare startups</div>
+                </div>
+                <div class="update-item">
+                    <div class="update-time">Yesterday | Jan 14, 2025</div>
+                    <div>Stanford study: AI reduces diagnostic errors by 47% in rural clinics</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Categories -->
+    <section class="news-categories">
+        <div class="container">
+            <div class="category-tabs">
+                <button class="category-tab active">All News</button>
+                <button class="category-tab">Regulatory Updates</button>
+                <button class="category-tab">Product Launches</button>
+                <button class="category-tab">Research Breakthroughs</button>
+                <button class="category-tab">Funding & Investments</button>
+                <button class="category-tab">Partnerships</button>
+                <button class="category-tab">Global Health</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Grid -->
+    <section class="news-grid-section">
+        <div class="container">
+            <div class="news-grid">
+                <!-- Main News Column -->
+                <div class="main-news">
+                    <!-- Featured News -->
+                    <article class="news-card-large">
+                        <div class="news-image-large" style="background-image: url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80');">
+                            <span class="news-badge">EXCLUSIVE</span>
+                        </div>
+                        <div class="news-content-large">
+                            <h3>Medtronic Launches World's First AI-Driven Surgical Robot with Autonomous Capabilities</h3>
+                            <p>The new Hugo RAS system uses machine learning to assist surgeons in complex procedures, reducing surgery time by 40% and improving precision by 300%. FDA clearance received after successful trials across 15 hospitals.</p>
+                            <a href="#" style="color: var(--primary); font-weight: 600; text-decoration: none;">Read Full Report →</a>
+                            <div class="news-meta-large">
+                                <div>
+                                    <span style="font-weight: 600;">John Carter</span> | Medical Technology Correspondent
+                                </div>
+                                <div>📅 2 hours ago | ⏱️ 4 min read</div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Quick News Grid -->
+                    <div class="quick-news-grid">
+                        <div class="quick-news-card">
+                            <h5>🏥 Apollo Hospitals Partners with Microsoft for AI-Powered Telemedicine</h5>
+                            <p>500 clinics to implement AI diagnostic tools integrated with Azure cloud platform</p>
+                            <div class="trending-meta">
+                                <span>📅 Jan 14</span>
+                                <span>💼 Partnership</span>
+                            </div>
+                        </div>
+                        <div class="quick-news-card">
+                            <h5>💰 AI Health Startup CureAI Raises $150M Series C</h5>
+                            <p>Funding led by Sequoia Capital to expand cancer detection platform globally</p>
+                            <div class="trending-meta">
+                                <span>📅 Jan 13</span>
+                                <span>💵 Funding</span>
+                            </div>
+                        </div>
+                        <div class="quick-news-card">
+                            <h5>📜 EU Approves New Medical AI Regulations</h5>
+                            <p>Strict guidelines for clinical validation and transparency in AI medical devices</p>
+                            <div class="trending-meta">
+                                <span>📅 Jan 12</span>
+                                <span>⚖️ Regulation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="news-sidebar">
+                    <!-- Trending Now -->
+                    <div class="sidebar-section">
+                        <h4>🔥 TRENDING NOW</h4>
+                        <div class="trending-list">
+                            <div class="trending-item">
+                                <h5>NVIDIA Unveils Healthcare-Specific AI Chips</h5>
+                                <div class="trending-meta">
+                                    <span>Technology</span>
+                                    <span>1.2K shares</span>
+                                </div>
+                            </div>
+                            <div class="trending-item">
+                                <h5>AI Detects Alzheimer's 10 Years Early</h5>
+                                <div class="trending-meta">
+                                    <span>Research</span>
+                                    <span>850 shares</span>
+                                </div>
+                            </div>
+                            <div class="trending-item">
+                                <h5>ChatGPT-4 Passes US Medical Licensing Exam</h5>
+                                <div class="trending-meta">
+                                    <span>Breakthrough</span>
+                                    <span>2.1K shares</span>
+                                </div>
+                            </div>
+                            <div class="trending-item">
+                                <h5>Amazon Launches AI Pharmacy Service</h5>
+                                <div class="trending-meta">
+                                    <span>Business</span>
+                                    <span>950 shares</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Upcoming Events -->
+                    <div class="sidebar-section">
+                        <h4>📅 UPCOMING EVENTS</h4>
+                        <div class="trending-list">
+                            <div class="trending-item">
+                                <h5>AI in Healthcare Summit 2025</h5>
+                                <div class="trending-meta">
+                                    <span>Jan 20-22</span>
+                                    <span>Virtual</span>
+                                </div>
+                            </div>
+                            <div class="trending-item">
+                                <h5>FDA Workshop: AI/ML in Medical Devices</h5>
+                                <div class="trending-meta">
+                                    <span>Jan 25</span>
+                                    <span>Washington DC</span>
+                                </div>
+                            </div>
+                            <div class="trending-item">
+                                <h5>RSNA Annual Meeting: AI in Radiology</h5>
+                                <div class="trending-meta">
+                                    <span>Feb 1-3</span>
+                                    <span>Chicago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Market Watch -->
+                    <div class="sidebar-section">
+                        <h4>📈 MARKET WATCH</h4>
+                        <div class="trending-list">
+                            <div class="trending-item">
+                                <h5>HealthAI Stocks +12% This Week</h5>
+                                <div class="trending-meta">
+                                    <span>NASDAQ: HAI</span>
+                                    <span style="color: var(--success);">↑ 12.3%</span>
+                                </div>
+                            </div>
+                            <div class="trending-item">
+                                <h5>MedTech ETF Reaches All-Time High</h5>
+                                <div class="trending-meta">
+                                    <span>IHI ETF</span>
+                                    <span style="color: var(--success);">↑ 8.7%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- More News Section -->
+            <div style="margin-top: 4rem;">
+                <h3 style="font-size: 1.8rem; margin-bottom: 2rem; color: var(--dark);">More Recent News</h3>
+                <div class="quick-news-grid">
+                    <div class="quick-news-card">
+                        <h5>🩺 AI Stethoscope Detects Heart Disease with 95% Accuracy</h5>
+                        <p>Portable device uses deep learning to analyze heart sounds in real-time</p>
+                        <div class="trending-meta">
+                            <span>📅 Jan 11</span>
+                            <span>🩺 Cardiology</span>
+                        </div>
+                    </div>
+                    <div class="quick-news-card">
+                        <h5>🧬 Google's AlphaFold 3 Solves Protein Interaction Mystery</h5>
+                        <p>Breakthrough could accelerate drug discovery for complex diseases</p>
+                        <div class="trending-meta">
+                            <span>📅 Jan 10</span>
+                            <span>🔬 Research</span>
+                        </div>
+                    </div>
+                    <div class="quick-news-card">
+                        <h5>🏛️ White House Announces $2B AI Healthcare Initiative</h5>
+                        <p>Funding for AI research and implementation in underserved communities</p>
+                        <div class="trending-meta">
+                            <span>📅 Jan 9</span>
+                            <span>🇺🇸 Government</span>
+                        </div>
+                    </div>
+                    <div class="quick-news-card">
+                        <h5>📱 Apple Watch Adds FDA-Cleared AI Health Features</h5>
+                        <p>New algorithms detect atrial fibrillation and sleep apnea</p>
+                        <div class="trending-meta">
+                            <span>📅 Jan 8</span>
+                            <span>⌚ Wearables</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter-news">
+        <div class="container">
+            <h3>Get Daily AI Healthcare News Alerts</h3>
+            <p>Stay updated with breaking news, regulatory changes, and major announcements</p>
+            <form>
+                <input type="email" placeholder="Your email address" required>
+                <button type="submit">Subscribe Free</button>
+            </form>
+            <p style="font-size: 0.9rem; margin-top: 1rem; opacity: 0.9;">Daily digest • No spam • Unsubscribe anytime</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <!-- Footer -->
+    <div id="footer"></div>
+    <script>
+        fetch('partials/footer.html')
+            .then(response => response.text())
+            .then(html => document.getElementById('footer').innerHTML = html);
+    </script>
+
+    <script>
+        // Category tabs functionality
+        document.querySelectorAll('.category-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.category-tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                
+                // In real implementation, this would filter news
+                console.log('Filtering news by:', this.textContent);
+            });
+        });
+
+        // Live updates auto-scroll
+        const updatesFeed = document.querySelector('.updates-feed');
+        let scrollPosition = 0;
+        
+        function autoScrollUpdates() {
+            if (updatesFeed.scrollWidth > updatesFeed.clientWidth) {
+                scrollPosition += 1;
+                updatesFeed.scrollLeft = scrollPosition;
+                
+                if (scrollPosition >= updatesFeed.scrollWidth - updatesFeed.clientWidth) {
+                    scrollPosition = 0;
+                }
+            }
+        }
+        
+        setInterval(autoScrollUpdates, 50);
+
+        // Simulate live updates
+        function addLiveUpdate() {
+            const times = ['Just now', '5 min ago', '10 min ago'];
+            const updates = [
+                'New study: AI reduces hospital readmissions by 35%',
+                'IBM launches Watson Health 2.0 with new AI capabilities',
+                'AI startup PathAI valued at $8B after latest funding round'
+            ];
+            
+            const updateItem = document.createElement('div');
+            updateItem.className = 'update-item';
+            updateItem.innerHTML = `
+                <div class="update-time">${times[Math.floor(Math.random() * times.length)]}</div>
+                <div>${updates[Math.floor(Math.random() * updates.length)]}</div>
+            `;
+            
+            updatesFeed.appendChild(updateItem);
+        }
+
+        // Add a new update every 30 seconds
+        setInterval(addLiveUpdate, 30000);
+
+        // Newsletter form
+        document.querySelector('.newsletter-news form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input').value;
+            alert(`Thank you for subscribing to daily news alerts with: ${email}`);
+            this.reset();
+        });
+    </script>
+</body>
+</html>

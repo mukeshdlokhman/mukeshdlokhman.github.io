@@ -4,9 +4,464 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DoctorsMitra</title>
+    <title>How DoctorsMitra Works - Smart Healthcare Solution</title>
     <link rel="icon" href="/assets/images/logo.jpeg" type="image/jpeg">
     <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0066cc;
+            --primary-dark: #004c99;
+            --secondary: #00c896;
+            --accent: #667eea;
+            --purple: #764ba2;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--purple) 100%);
+            color: white;
+            padding: 120px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.05)" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,144C960,149,1056,139,1152,122.7C1248,107,1344,85,1392,74.7L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            padding: 10px 25px;
+            border-radius: 50px;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255,255,255,0.3);
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        /* Process Section */
+        .process-section {
+            padding: 100px 0;
+            background: linear-gradient(to bottom, #ffffff 0%, var(--light) 100%);
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Animated Steps */
+        .steps-container {
+            position: relative;
+            padding: 3rem 0;
+        }
+
+        .step-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 6rem;
+            align-items: center;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .step-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .step-item:nth-child(even) {
+            direction: rtl;
+        }
+
+        .step-item:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .step-content {
+            padding: 2rem;
+        }
+
+        .step-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .step-content h3 {
+            font-size: 2.2rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .step-content p {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .step-features {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        .step-features li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #555;
+        }
+
+        .step-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Visual Box */
+        .step-visual {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .step-visual::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(135deg, var(--accent), var(--purple));
+            opacity: 0.05;
+            border-radius: 50%;
+        }
+
+        .visual-icon {
+            font-size: 8rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
+        }
+
+        .visual-graphic {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .graphic-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+
+        .pill {
+            background: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            color: var(--primary);
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .pill:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+
+        .pill:nth-child(3) {
+            animation-delay: 1s;
+        }
+
+        /* Benefits Grid */
+        .benefits-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .benefit-card {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.2);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            background: rgba(255,255,255,0.25);
+            transform: translateY(-10px);
+        }
+
+        .benefit-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .benefit-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .benefit-card p {
+            opacity: 0.9;
+            font-size: 1rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            text-align: center;
+            background: var(--dark);
+            color: white;
+        }
+
+        .cta-section h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        /* Connection Lines */
+        .connection-line {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100px;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+            opacity: 0.3;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .step-item {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .step-item:nth-child(even) {
+                direction: ltr;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .step-content h3 {
+                font-size: 1.8rem;
+            }
+
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        /* Decorative Elements */
+        .floating-shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .shape-1 {
+            width: 100px;
+            height: 100px;
+            background: var(--primary);
+            top: 10%;
+            left: 5%;
+        }
+
+        .shape-2 {
+            width: 150px;
+            height: 150px;
+            background: var(--secondary);
+            bottom: 20%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+    </style>
 </head>
 
 <body>
@@ -18,41 +473,194 @@
             .then(html => document.getElementById('navbar').innerHTML = html);
     </script>
 
-    <!-- How It Works -->
-    <section class="how-it-works" id="how-it-works">
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    ⚡ Streamlined Healthcare Workflow
+                </div>
+                <h1>How DoctorsMitra Works</h1>
+                <p>Experience the power of intelligent automation in healthcare. From patient check-in to prescription export - all in 4 simple steps.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section">
         <div class="container">
             <div class="section-header">
-                <h2>How DoctorsMitra Works</h2>
-                <p>Simple, efficient workflow designed for busy healthcare professionals</p>
+                <h2>Your Complete Workflow</h2>
+                <p>Designed specifically for busy healthcare professionals who want efficiency without compromising care quality</p>
             </div>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h3>Patient Check-In</h3>
-                    <p>System automatically fetches and displays comprehensive patient summary with history and
-                        allergies</p>
+
+            <div class="steps-container">
+                <!-- Step 1 -->
+                <div class="step-item" data-step="1">
+                    <div class="step-content">
+                        <div class="step-badge">
+                            <span>Step 1</span>
+                            <span>🚀</span>
+                        </div>
+                        <h3>Patient Check-In</h3>
+                        <p>Start with instant access to complete patient information. Our intelligent system automatically retrieves and displays everything you need before the consultation begins.</p>
+                        <ul class="step-features">
+                            <li>Comprehensive patient history at a glance</li>
+                            <li>Allergy warnings prominently displayed</li>
+                            <li>Previous prescriptions and diagnoses</li>
+                            <li>Chronic conditions highlighted</li>
+                        </ul>
+                    </div>
+                    <div class="step-visual">
+                        <div class="visual-icon">📋</div>
+                        <div class="visual-graphic">
+                            <h4>Patient Summary Dashboard</h4>
+                            <div class="graphic-pills">
+                                <span class="pill">Demographics</span>
+                                <span class="pill">Allergies</span>
+                                <span class="pill">History</span>
+                                <span class="pill">Vitals</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h3>Consultation & Diagnosis</h3>
-                    <p>AI suggests diagnoses and follow-up questions while you examine the patient using voice or
-                        keyboard input</p>
+
+                <!-- Step 2 -->
+                <div class="step-item" data-step="2">
+                    <div class="step-content">
+                        <div class="step-badge">
+                            <span>Step 2</span>
+                            <span>🩺</span>
+                        </div>
+                        <h3>Consultation & Diagnosis</h3>
+                        <p>Conduct examinations with AI-powered assistance that suggests diagnoses and relevant follow-up questions based on symptoms and patient history.</p>
+                        <ul class="step-features">
+                            <li>Voice-to-text for hands-free documentation</li>
+                            <li>Smart follow-up question suggestions</li>
+                            <li>AI-assisted diagnosis recommendations</li>
+                            <li>Complete clinical note capture</li>
+                        </ul>
+                    </div>
+                    <div class="step-visual">
+                        <div class="visual-icon">🧠</div>
+                        <div class="visual-graphic">
+                            <h4>Intelligent Consultation</h4>
+                            <div class="graphic-pills">
+                                <span class="pill">🎤 Voice Input</span>
+                                <span class="pill">💡 AI Suggestions</span>
+                                <span class="pill">📝 Notes</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h3>Prescription Generation</h3>
-                    <p>AI drafts prescription with drug interaction checks. Review, edit, and approve with full control
-                    </p>
+
+                <!-- Step 3 -->
+                <div class="step-item" data-step="3">
+                    <div class="step-content">
+                        <div class="step-badge">
+                            <span>Step 3</span>
+                            <span>💊</span>
+                        </div>
+                        <h3>Prescription Generation</h3>
+                        <p>Let AI draft your prescriptions while you maintain complete control. Every medication is checked for interactions, contraindications, and patient-specific factors.</p>
+                        <ul class="step-features">
+                            <li>Automated prescription drafting</li>
+                            <li>Real-time drug interaction alerts</li>
+                            <li>Age and weight-based dosing</li>
+                            <li>Fully editable before approval</li>
+                        </ul>
+                    </div>
+                    <div class="step-visual">
+                        <div class="visual-icon">💊</div>
+                        <div class="visual-graphic">
+                            <h4>Smart Prescriptions</h4>
+                            <div class="graphic-pills">
+                                <span class="pill">⚠️ Safety Check</span>
+                                <span class="pill">📋 Templates</span>
+                                <span class="pill">✏️ Editable</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <h3>Export & Follow-up</h3>
-                    <p>Export prescription in multiple formats and schedule follow-up appointments seamlessly</p>
+
+                <!-- Step 4 -->
+                <div class="step-item" data-step="4">
+                    <div class="step-content">
+                        <div class="step-badge">
+                            <span>Step 4</span>
+                            <span>📤</span>
+                        </div>
+                        <h3>Export & Follow-up</h3>
+                        <p>Complete the consultation by exporting prescriptions in multiple formats and scheduling follow-ups - all in seconds.</p>
+                        <ul class="step-features">
+                            <li>PDF, WhatsApp, and SMS export</li>
+                            <li>Automated follow-up scheduling</li>
+                            <li>Digital prescription delivery</li>
+                            <li>Complete audit trail maintained</li>
+                        </ul>
+                    </div>
+                    <div class="step-visual">
+                        <div class="visual-icon">📱</div>
+                        <div class="visual-graphic">
+                            <h4>Multi-Format Export</h4>
+                            <div class="graphic-pills">
+                                <span class="pill">📄 PDF</span>
+                                <span class="pill">💬 WhatsApp</span>
+                                <span class="pill">📧 Email</span>
+                                <span class="pill">📅 Schedule</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Healthcare Professionals Love DoctorsMitra</h2>
+                <p>Real benefits that transform your daily practice</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <span class="benefit-icon">⚡</span>
+                    <h4>50% Faster</h4>
+                    <p>Complete consultations in half the time</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="benefit-icon">✅</span>
+                    <h4>95% Accuracy</h4>
+                    <p>Reduce prescription errors significantly</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="benefit-icon">😊</span>
+                    <h4>Better Care</h4>
+                    <p>More time with patients, less paperwork</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="benefit-icon">🔐</span>
+                    <h4>Secure & Compliant</h4>
+                    <p>HIPAA compliant with full encryption</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Transform Your Practice?</h2>
+            <p>Join hundreds of doctors already using DoctorsMitra to deliver exceptional patient care</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-primary">Start Free Trial</a>
+                <a href="#" class="btn btn-secondary">Schedule a Demo</a>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <div id="footer"></div>
@@ -61,8 +669,41 @@
             .then(response => response.text())
             .then(html => document.getElementById('footer').innerHTML = html);
     </script>
-    <script src="assets/js/main.js" defer></script>
 
+    <script>
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all step items
+        document.querySelectorAll('.step-item').forEach(step => {
+            observer.observe(step);
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

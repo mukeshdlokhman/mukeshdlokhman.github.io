@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms & Conditions - DoctorsMitra</title>
+    <link rel="icon" href="/assets/images/logo.jpeg" type="image/jpeg">
+        <link rel="stylesheet" href="assets/css/styles.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0066cc;
+            --primary-dark: #004c99;
+            --secondary: #00c896;
+            --accent: #667eea;
+            --purple: #764ba2;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+            --warning: #f59e0b;
+            --success: #10b981;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: var(--dark);
+            overflow-x: hidden;
+            background: var(--light);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--purple) 100%);
+            color: white;
+            padding: 120px 0 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.05)" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,144C960,149,1056,139,1152,122.7C1248,107,1344,85,1392,74.7L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-icon {
+            font-size: 5rem;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        .last-updated {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            padding: 10px 25px;
+            border-radius: 50px;
+            margin-top: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.3);
+            animation: fadeInUp 0.8s ease 0.6s both;
+        }
+
+        /* Quick Links Section */
+        .quick-links {
+            background: white;
+            box-shadow: 0 -20px 40px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 10;
+            margin-top: -30px;
+            border-radius: 20px 20px 0 0;
+            padding: 3rem 0 2rem;
+        }
+
+        .quick-links h3 {
+            text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--dark);
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .quick-link-item {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .quick-link-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,102,204,0.3);
+        }
+
+        /* Content Section */
+        .content-section {
+            background: white;
+            padding: 4rem 0;
+        }
+
+        .content-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+        }
+
+        .compliance-badges {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+            justify-content: center;
+        }
+
+        .badge {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(0,102,204,0.2);
+        }
+
+        .section-block {
+            margin-bottom: 3rem;
+            padding: 2.5rem;
+            background: var(--light);
+            border-radius: 15px;
+            border-left: 5px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .section-block:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transform: translateX(5px);
+        }
+
+        .section-block h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-icon {
+            font-size: 2rem;
+        }
+
+        .section-block h3 {
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin: 1.5rem 0 1rem;
+        }
+
+        .section-block p {
+            margin-bottom: 1rem;
+            color: #555;
+            font-size: 1.05rem;
+        }
+
+        .section-block ul,
+        .section-block ol {
+            margin: 1rem 0 1rem 2rem;
+            color: #555;
+        }
+
+        .section-block li {
+            margin-bottom: 0.8rem;
+            line-height: 1.8;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--accent);
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(251, 191, 36, 0.1));
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--warning);
+        }
+
+        .success-box {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(52, 211, 153, 0.1));
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--success);
+        }
+
+        .info-icon {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        /* Acceptance Section */
+        .acceptance-section {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .acceptance-card {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.2);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .acceptance-card h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .acceptance-card p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .checkbox-container {
+            background: rgba(255,255,255,0.2);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 1rem;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            margin-top: 3px;
+        }
+
+        .checkbox-item label {
+            cursor: pointer;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        .accept-btn {
+            background: white;
+            color: var(--primary);
+            padding: 1.2rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .accept-btn.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .accept-btn.active:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .decline-btn {
+            background: transparent;
+            color: white;
+            padding: 1rem 2.5rem;
+            border: 2px solid white;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-left: 1rem;
+        }
+
+        .decline-btn:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .contact-section h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-section p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .content-wrapper {
+                padding: 1.5rem;
+            }
+
+            .section-block {
+                padding: 1.5rem;
+            }
+
+            .links-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .accept-btn, .decline-btn {
+                width: 100%;
+                margin: 0.5rem 0;
+            }
+        }
+
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 20px rgba(0,102,204,0.4);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-5px);
+        }
+
+        .scroll-top.visible {
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <div id="navbar"></div>
+    <script>
+        fetch('partials/navbar.html')
+            .then(response => response.text())
+            .then(html => document.getElementById('navbar').innerHTML = html);
+    </script>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-icon">📋</div>
+                <h1>Terms & Conditions</h1>
+                <p>Please read these terms carefully before using DoctorsMitra healthcare platform</p>
+                <div class="last-updated">
+                    📅 Last Updated: January 15, 2025
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Links -->
+    <section class="quick-links">
+        <div class="container">
+            <h3>Quick Navigation</h3>
+            <div class="links-grid">
+                <a href="#acceptance" class="quick-link-item">📝 Acceptance</a>
+                <a href="#medical-disclaimer" class="quick-link-item">⚕️ Medical Disclaimer</a>
+                <a href="#hipaa" class="quick-link-item">🔒 HIPAA Compliance</a>
+                <a href="#user-responsibilities" class="quick-link-item">👤 User Duties</a>
+                <a href="#data-privacy" class="quick-link-item">🛡️ Data Privacy</a>
+                <a href="#liability" class="quick-link-item">⚖️ Liability</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="content-section">
+        <div class="container">
+            <div class="compliance-badges">
+                <div class="badge">
+                    <span>🔒</span>
+                    <span>HIPAA Compliant</span>
+                </div>
+                <div class="badge">
+                    <span>🛡️</span>
+                    <span>ISO 27001 Certified</span>
+                </div>
+                <div class="badge">
+                    <span>✅</span>
+                    <span>FDA Guidelines</span>
+                </div>
+                <div class="badge">
+                    <span>🌐</span>
+                    <span>GDPR Ready</span>
+                </div>
+            </div>
+
+            <div class="content-wrapper">
+                <!-- Introduction -->
+                <div class="section-block" id="acceptance">
+                    <h2><span class="section-icon">📄</span>Acceptance of Terms</h2>
+                    <p>By accessing and using DoctorsMitra ("the Platform"), you accept and agree to be bound by the terms and provisions of this agreement. If you do not agree to abide by the above, please do not use this service.</p>
+                    
+                    <div class="highlight-box">
+                        <p><span class="info-icon">i</span><strong>Important:</strong> These terms constitute a legally binding agreement between you (the healthcare professional) and DoctorsMitra. Please read carefully.</p>
+                    </div>
+
+                    <h3>Who Can Use This Platform</h3>
+                    <ul>
+                        <li>Licensed healthcare professionals with valid medical credentials</li>
+                        <li>Healthcare institutions and hospitals with proper registration</li>
+                        <li>Authorized medical staff operating under licensed physicians</li>
+                        <li>Users must be 18 years or older</li>
+                    </ul>
+                </div>
+
+                <!-- Medical Disclaimer -->
+                <div class="section-block" id="medical-disclaimer">
+                    <h2><span class="section-icon">⚕️</span>Medical Disclaimer & Professional Responsibility</h2>
+                    
+                    <div class="warning-box">
+                        <p><strong>⚠️ Critical Notice:</strong> DoctorsMitra is a clinical decision support tool. All AI-generated suggestions, diagnoses, and prescriptions are recommendations only and require physician review and approval before implementation.</p>
+                    </div>
+
+                    <h3>Healthcare Professional Responsibility</h3>
+                    <p>As a licensed healthcare professional using this platform, you acknowledge that:</p>
+                    <ol>
+                        <li><strong>Final Medical Authority:</strong> You retain sole responsibility for all clinical decisions, diagnoses, and treatment plans.</li>
+                        <li><strong>AI as Support Tool:</strong> The AI system provides suggestions based on algorithms and data, but cannot replace clinical judgment.</li>
+                        <li><strong>Verification Required:</strong> All AI-generated content must be reviewed, verified, and approved by you before patient application.</li>
+                        <li><strong>Professional Standards:</strong> You must comply with all applicable medical standards, ethical guidelines, and licensing requirements.</li>
+                        <li><strong>Patient Safety:</strong> You are responsible for ensuring patient safety and appropriate care delivery at all times.</li>
+                    </ol>
+
+                    <h3>Limitations of AI Technology</h3>
+                    <ul>
+                        <li>AI suggestions are based on pattern recognition and historical data</li>
+                        <li>The system cannot account for all individual patient factors</li>
+                        <li>Rare conditions or unusual presentations may not be accurately identified</li>
+                        <li>Drug interaction databases may not include all possible interactions</li>
+                        <li>Clinical judgment must always supersede automated recommendations</li>
+                    </ul>
+                </div>
+
+                <!-- HIPAA Compliance -->
+                <div class="section-block" id="hipaa">
+                    <h2><span class="section-icon">🔒</span>HIPAA Compliance & Data Security</h2>
+                    
+                    <div class="success-box">
+                        <p><strong>✓ Our Commitment:</strong> DoctorsMitra is fully HIPAA compliant and implements comprehensive safeguards to protect patient health information (PHI).</p>
+                    </div>
+
+                    <h3>Data Protection Measures</h3>
+                    <ul>
+                        <li><strong>Encryption:</strong> All data is encrypted in transit (TLS 1.3) and at rest (AES-256)</li>
+                        <li><strong>Access Controls:</strong> Role-based access with multi-factor authentication</li>
+                        <li><strong>Audit Trails:</strong> Complete logging of all PHI access and modifications</li>
+                        <li><strong>Data Backup:</strong> Regular encrypted backups with disaster recovery protocols</li>
+                        <li><strong>Business Associate Agreement:</strong> We execute BAA with all healthcare providers</li>
+                    </ul>
+
+                    <h3>User Obligations for HIPAA Compliance</h3>
+                    <ol>
+                        <li>Maintain confidentiality of login credentials</li>
+                        <li>Use secure networks when accessing patient data</li>
+                        <li>Log out when leaving workstations unattended</li>
+                        <li>Report any suspected security breaches immediately</li>
+                        <li>Complete required HIPAA training for your organization</li>
+                        <li>Never share patient data through unsecured channels</li>
+                    </ol>
+
+                    <h3>Breach Notification</h3>
+                    <p>In the event of a data breach affecting PHI, we will:</p>
+                    <ul>
+                        <li>Notify affected users within 24-48 hours</li>
+                        <li>Provide detailed information about the breach</li>
+                        <li>Outline steps taken to mitigate the breach</li>
+                        <li>Comply with all HIPAA breach notification requirements</li>
+                    </ul>
+                </div>
+
+                <!-- User Responsibilities -->
+                <div class="section-block" id="user-responsibilities">
+                    <h2><span class="section-icon">👤</span>User Responsibilities & Obligations</h2>
+
+                    <h3>Account Security</h3>
+                    <p>You are responsible for:</p>
+                    <ul>
+                        <li>Maintaining the confidentiality of your account credentials</li>
+                        <li>All activities that occur under your account</li>
+                        <li>Immediately notifying us of any unauthorized access</li>
+                        <li>Using strong, unique passwords and enabling two-factor authentication</li>
+                        <li>Regularly updating your password (recommended every 90 days)</li>
+                    </ul>
+
+                    <h3>Professional Conduct</h3>
+                    <p>Users must:</p>
+                    <ol>
+                        <li>Maintain valid medical licenses and credentials</li>
+                        <li>Use the platform only for legitimate medical purposes</li>
+                        <li>Respect patient confidentiality and privacy rights</li>
+                        <li>Provide accurate and complete patient information</li>
+                        <li>Not misuse or attempt to manipulate the AI system</li>
+                        <li>Report software bugs or inaccuracies promptly</li>
+                    </ol>
+
+                    <h3>Prohibited Activities</h3>
+                    <div class="warning-box">
+                        <p>The following activities are strictly prohibited:</p>
+                        <ul>
+                            <li>Sharing account credentials with unauthorized persons</li>
+                            <li>Accessing patient records without legitimate medical need</li>
+                            <li>Reverse engineering or attempting to extract AI algorithms</li>
+                            <li>Using the platform for fraudulent billing or insurance claims</li>
+                            <li>Introducing malware, viruses, or harmful code</li>
+                            <li>Scraping or extracting data through automated means</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Data Privacy -->
+                <div class="section-block" id="data-privacy">
+                    <h2><span class="section-icon">🛡️</span>Data Privacy & Patient Information</h2>
+
+                    <h3>Information We Collect</h3>
+                    <p>The platform collects and processes:</p>
+                    <ul>
+                        <li><strong>Patient Health Information:</strong> Medical history, diagnoses, prescriptions, lab results</li>
+                        <li><strong>User Information:</strong> Professional credentials, contact details, usage data</li>
+                        <li><strong>Technical Data:</strong> Device information, IP addresses, access logs</li>
+                        <li><strong>Communication Data:</strong> Messages, consultations, telemedicine sessions</li>
+                    </ul>
+
+                    <h3>How We Use Information</h3>
+                    <ol>
+                        <li><strong>Clinical Care:</strong> To support diagnosis, treatment planning, and prescribing</li>
+                        <li><strong>AI Improvement:</strong> To enhance algorithm accuracy (only de-identified data)</li>
+                        <li><strong>Compliance:</strong> To meet regulatory and legal requirements</li>
+                        <li><strong>Security:</strong> To detect and prevent unauthorized access or fraud</li>
+                        <li><strong>Support:</strong> To provide technical assistance and troubleshooting</li>
+                    </ol>
+
+                    <h3>Data Retention</h3>
+                    <p>We retain patient data according to:</p>
+                    <ul>
+                        <li>State and federal medical record retention laws (typically 7-10 years)</li>
+                        <li>Specific healthcare provider retention policies</li>
+                        <li>Legal holds for ongoing litigation or investigations</li>
+                        <li>Patient requests for deletion (where legally permissible)</li>
+                    </ul>
+
+                    <h3>Patient Rights</h3>
+                    <p>Patients have the right to:</p>
+                    <ul>
+                        <li>Access their medical records</li>
+                        <li>Request corrections to inaccurate information</li>
+                        <li>Receive an accounting of disclosures</li>
+                        <li>Request restrictions on PHI use</li>
+                        <li>File complaints about privacy practices</li>
+                    </ul>
+                </div>
+
+                <!-- Liability & Indemnification -->
+                <div class="section-block" id="liability">
+                    <h2><span class="section-icon">⚖️</span>Liability & Indemnification</h2>
+
+                    <h3>Limitation of Liability</h3>
+                    <div class="warning-box">
+                        <p><strong>Important Legal Notice:</strong> DoctorsMitra provides software tools and decision support. We do not practice medicine or provide medical services.</p>
+                    </div>
+
+                    <p>To the maximum extent permitted by law:</p>
+                    <ul>
+                        <li>We are not liable for medical malpractice or treatment outcomes</li>
+                        <li>We are not responsible for healthcare professional's clinical decisions</li>
+                        <li>Our liability is limited to the fees paid for the service</li>
+                        <li>We disclaim all warranties, express or implied, regarding accuracy</li>
+                        <li>We are not liable for indirect, consequential, or punitive damages</li>
+                    </ul>
+
+                    <h3>User Indemnification</h3>
+                    <p>You agree to indemnify and hold DoctorsMitra harmless from claims arising from:</p>
+                    <ol>
+                        <li>Your use or misuse of the platform</li>
+                        <li>Your violation of these terms</li>
+                        <li>Your violation of patient rights or medical regulations</li>
+                        <li>Medical malpractice or negligence in patient care</li>
+                        <li>Unauthorized disclosure of patient information</li>
+                    </ol>
+
+                    <h3>Professional Liability Insurance</h3>
+                    <p>Healthcare professionals using this platform must maintain appropriate professional liability (malpractice) insurance covering their clinical practice.</p>
+                </div>
+
+                <!-- Service Terms -->
+                <div class="section-block">
+                    <h2><span class="section-icon">⚙️</span>Service Terms & Modifications</h2>
+
+                    <h3>Service Availability</h3>
+                    <ul>
+                        <li>We strive for 99.9% uptime but cannot guarantee uninterrupted service</li>
+                        <li>Scheduled maintenance will be announced in advance</li>
+                        <li>Emergency maintenance may occur without notice</li>
+                        <li>We are not liable for service interruptions or data loss</li>
+                    </ul>
+
+                    <h3>Modifications to Terms</h3>
+                    <p>We reserve the right to modify these terms at any time. Changes will be:</p>
+                    <ul>
+                        <li>Posted on the platform with updated effective date</li>
+                        <li>Communicated via email to registered users</li>
+                        <li>Effective 30 days after notification (unless immediate compliance required)</li>
+                        <li>Subject to your continued use constituting acceptance</li>
+                    </ul>
+
+                    <h3>Account Termination</h3>
+                    <p>We may suspend or terminate accounts for:</p>
+                    <ul>
+                        <li>Violation of these terms</li>
+                        <li>Fraudulent or illegal activity</li>
+                        <li>Non-payment of fees</li>
+                        <li>Compromised account security</li>
+                        <li>License revocation or credential issues</li>
+                    </ul>
+                </div>
+
+                <!-- Regulatory Compliance -->
+                <div class="section-block">
+                    <h2><span class="section-icon">📜</span>Regulatory Compliance</h2>
+
+                    <h3>Healthcare Regulations</h3>
+                    <p>DoctorsMitra complies with:</p>
+                    <ul>
+                        <li><strong>HIPAA:</strong> Health Insurance Portability and Accountability Act</li>
+                        <li><strong>HITECH:</strong> Health Information Technology for Economic and Clinical Health Act</li>
+                        <li><strong>FDA Guidelines:</strong> For clinical decision support software (non-device)</li>
+                        <li><strong>State Medical Board Regulations:</strong> Telemedicine and electronic prescribing laws</li>
+                        <li><strong>DEA Requirements:</strong> For controlled substance prescribing (where applicable)</li>
+                    </ul>
+
+                    <h3>International Users</h3>
+                    <p>For users outside the United States:</p>
+                    <ul>
+                        <li>Data may be transferred to and stored in the United States</li>
+                        <li>You must comply with local healthcare and privacy regulations</li>
+                        <li>GDPR protections apply to EU users</li>
+                        <li>Additional data processing agreements may be required</li>
+                    </ul>
+                </div>
+
+                <!-- Dispute Resolution -->
+                <div class="section-block">
+                    <h2><span class="section-icon">⚖️</span>Dispute Resolution</h2>
+
+                    <h3>Governing Law</h3>
+                    <p>These terms are governed by the laws of [Your State/Country], without regard to conflict of law provisions.</p>
+
+                    <h3>Arbitration</h3>
+                    <p>Any disputes shall be resolved through binding arbitration, except:</p>
+                    <ul>
+                        <li>Intellectual property disputes</li>
+                        <li>Medical malpractice claims (which follow standard legal procedures)</li>
+                        <li>Claims for injunctive relief</li>
+                    </ul>
+
+                    <h3>Class Action Waiver</h3>
+                    <p>You agree to resolve disputes individually and waive the right to participate in class actions or collective proceedings.</p>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="section-block">
+                    <h2><span class="section-icon">📞</span>Contact & Support</h2>
+
+                    <h3>For Questions About These Terms</h3>
+                    <p>Contact our legal department:</p>
+                    <ul>
+                        <li><strong>Email:</strong> legal@doctorsmitra.com</li>
+                        <li><strong>Phone:</strong> +91 98XXX XXXXX</li>
+                        <li><strong>Mail:</strong> DoctorsMitra Legal Department, [Address]</li>
+                    </ul>
+
+                    <h3>For Technical Support</h3>
+                    <ul>
+                        <li><strong>Email:</strong> support@doctorsmitra.com</li>
+                        <li><strong>Phone:</strong> +91 98XXX XXXXX (24/7 Support)</li>
+                        <li><strong>Live Chat:</strong> Available in the platform</li>
+                    </ul>
+
+                    <h3>For Privacy Concerns</h3>
+                    <ul>
+                        <li><strong>Email:</strong> privacy@doctorsmitra.com</li>
+                        <li><strong>HIPAA Compliance Officer:</strong> hipaa@doctorsmitra.com</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Acceptance Section -->
+    <section class="acceptance-section" id="accept">
+        <div class="container">
+            <div class="acceptance-card">
+                <h2>Accept Terms & Conditions</h2>
+                <p>By checking the boxes below and clicking "I Accept", you acknowledge that you have read, understood, and agree to be bound by these Terms & Conditions.</p>
+
+                <div class="checkbox-container">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="terms-read" onchange="checkAllBoxes()">
+                        <label for="terms-read">I have read and understood the complete Terms & Conditions</label>
+                    </div>
+
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="medical-responsibility" onchange="checkAllBoxes()">
+                        <label for="medical-responsibility">I understand that I retain full medical responsibility for all clinical decisions and patient care</label>
+                    </div>
+
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="hipaa-compliance" onchange="checkAllBoxes()">
+                        <label for="hipaa-compliance">I agree to comply with HIPAA regulations and protect patient privacy</label>
+                    </div>
+
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="professional-use" onchange="checkAllBoxes()">
+                        <label for="professional-use">I am a licensed healthcare professional and will use this platform for legitimate medical purposes only</label>
+                    </div>
+
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="data-processing" onchange="checkAllBoxes()">
+                        <label for="data-processing">I consent to the collection and processing of data as described in these terms</label>
+                    </div>
+                </div>
+
+                <button class="accept-btn" id="acceptBtn" onclick="acceptTerms()">I Accept Terms & Conditions</button>
+                <button class="decline-btn" onclick="declineTerms()">I Decline</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <h3>Need Help or Have Questions?</h3>
+            <p>Our team is here to assist you with any concerns about these terms</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📧</span>
+                    <span>legal@doctorsmitra.com</span>
+                </div>
+                <div class="contact-item">
+                    <span>📞</span>
+                    <span>+91 98XXX XXXXX</span>
+                </div>
+                <div class="contact-item">
+                    <span>💬</span>
+                    <span>24/7 Live Chat Support</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+    <script>
+        fetch('partials/footer.html')
+            .then(response => response.text())
+            .then(html => document.getElementById('footer').innerHTML = html);
+    </script>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop" onclick="scrollToTop()">↑</button>
+
+    <script>
+        // Check if all checkboxes are checked
+        function checkAllBoxes() {
+            const checkbox1 = document.getElementById('terms-read').checked;
+            const checkbox2 = document.getElementById('medical-responsibility').checked;
+            const checkbox3 = document.getElementById('hipaa-compliance').checked;
+            const checkbox4 = document.getElementById('professional-use').checked;
+            const checkbox5 = document.getElementById('data-processing').checked;
+            
+            const acceptBtn = document.getElementById('acceptBtn');
+            
+            if (checkbox1 && checkbox2 && checkbox3 && checkbox4 && checkbox5) {
+                acceptBtn.classList.add('active');
+            } else {
+                acceptBtn.classList.remove('active');
+            }
+        }
+
+        // Accept Terms
+        function acceptTerms() {
+            const acceptBtn = document.getElementById('acceptBtn');
+            if (acceptBtn.classList.contains('active')) {
+                alert('✓ Terms & Conditions Accepted!\n\nYou will now be redirected to the dashboard.');
+                // Here you would typically save the acceptance and redirect
+                // window.location.href = 'dashboard.html';
+            }
+        }
+
+        // Decline Terms
+        function declineTerms() {
+            if (confirm('Are you sure you want to decline the Terms & Conditions?\n\nYou will not be able to use the platform.')) {
+                alert('You have declined the Terms & Conditions.\n\nYou will be redirected to the homepage.');
+                // window.location.href = 'index.html';
+            }
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll to top button
+        window.addEventListener('scroll', function() {
+            const scrollTop = document.getElementById('scrollTop');
+            if (window.pageYOffset > 300) {
+                scrollTop.classList.add('visible');
+            } else {
+                scrollTop.classList.remove('visible');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</body>
+
+</html>

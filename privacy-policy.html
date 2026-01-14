@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - DoctorsMitra</title>
+    <link rel="icon" href="/assets/images/logo.jpeg" type="image/jpeg">
+      <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0066cc;
+            --primary-dark: #004c99;
+            --secondary: #00c896;
+            --accent: #667eea;
+            --purple: #764ba2;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+            --warning: #f59e0b;
+            --success: #10b981;
+            --info: #3b82f6;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: var(--dark);
+            overflow-x: hidden;
+            background: var(--light);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 120px 0 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.05)" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,144C960,149,1056,139,1152,122.7C1248,107,1344,85,1392,74.7L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            opacity: 0.3;
+        }
+
+        .floating-icons {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .float-icon {
+            position: absolute;
+            font-size: 3rem;
+            opacity: 0.15;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .float-icon:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+        .float-icon:nth-child(2) { top: 60%; right: 15%; animation-delay: 2s; }
+        .float-icon:nth-child(3) { bottom: 20%; left: 20%; animation-delay: 4s; }
+        .float-icon:nth-child(4) { top: 40%; right: 25%; animation-delay: 1s; }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-icon {
+            font-size: 5rem;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        .last-updated {
+            display: inline-block;
+            background: rgba(255,255,255,0.25);
+            backdrop-filter: blur(10px);
+            padding: 10px 25px;
+            border-radius: 50px;
+            margin-top: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.3);
+            animation: fadeInUp 0.8s ease 0.6s both;
+        }
+
+        /* Quick Links */
+        .quick-links {
+            background: white;
+            box-shadow: 0 -20px 40px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 10;
+            margin-top: -30px;
+            border-radius: 20px 20px 0 0;
+            padding: 3rem 0 2rem;
+        }
+
+        .quick-links h3 {
+            text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--dark);
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .quick-link-item {
+            background: linear-gradient(135deg, var(--success), #059669);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .quick-link-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
+        }
+
+        /* Content Section */
+        .content-section {
+            background: white;
+            padding: 4rem 0;
+        }
+
+        .content-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+        }
+
+        .compliance-badges {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+            justify-content: center;
+        }
+
+        .badge {
+            background: linear-gradient(135deg, var(--success), #059669);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2);
+        }
+
+        .section-block {
+            margin-bottom: 3rem;
+            padding: 2.5rem;
+            background: var(--light);
+            border-radius: 15px;
+            border-left: 5px solid var(--success);
+            transition: all 0.3s ease;
+        }
+
+        .section-block:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transform: translateX(5px);
+        }
+
+        .section-block h2 {
+            font-size: 2rem;
+            color: var(--success);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-icon {
+            font-size: 2rem;
+        }
+
+        .section-block h3 {
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin: 1.5rem 0 1rem;
+        }
+
+        .section-block p {
+            margin-bottom: 1rem;
+            color: #555;
+            font-size: 1.05rem;
+        }
+
+        .section-block ul,
+        .section-block ol {
+            margin: 1rem 0 1rem 2rem;
+            color: #555;
+        }
+
+        .section-block li {
+            margin-bottom: 0.8rem;
+            line-height: 1.8;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(52, 211, 153, 0.1));
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--success);
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(251, 191, 36, 0.1));
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--warning);
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(96, 165, 250, 0.1));
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--info);
+        }
+
+        .info-icon {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background: var(--success);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .data-table th {
+            background: linear-gradient(135deg, var(--success), #059669);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .data-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .data-table tr:hover {
+            background: var(--light);
+        }
+
+        /* Rights Section */
+        .rights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .right-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            border-top: 4px solid var(--success);
+            transition: all 0.3s ease;
+        }
+
+        .right-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .right-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .right-card h4 {
+            font-size: 1.3rem;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .right-card p {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, var(--success), #059669);
+            color: white;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .contact-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-card {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            background: rgba(255,255,255,0.25);
+            transform: translateY(-5px);
+        }
+
+        .contact-card-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-card p {
+            font-size: 1.1rem;
+        }
+
+        /* Footer Note */
+        .footer-note {
+            background: var(--dark);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer-note p {
+            opacity: 0.8;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Scroll to top */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--success), #059669);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 20px rgba(16, 185, 129, 0.4);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-5px);
+        }
+
+        .scroll-top.visible {
+            display: flex;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .content-wrapper {
+                padding: 1.5rem;
+            }
+
+            .section-block {
+                padding: 1.5rem;
+            }
+
+            .links-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .data-table {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <div id="navbar"></div>
+    <script>
+        fetch('partials/navbar.html')
+            .then(response => response.text())
+            .then(html => document.getElementById('navbar').innerHTML = html);
+    </script>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="floating-icons">
+            <div class="float-icon">🔒</div>
+            <div class="float-icon">🛡️</div>
+            <div class="float-icon">🔐</div>
+            <div class="float-icon">🗝️</div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-icon">🛡️</div>
+                <h1>Privacy Policy</h1>
+                <p>Your privacy and the security of patient health information is our top priority</p>
+                <div class="last-updated">
+                    📅 Last Updated: January 15, 2025
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Links -->
+    <section class="quick-links">
+        <div class="container">
+            <h3>Quick Navigation</h3>
+            <div class="links-grid">
+                <a href="#overview" class="quick-link-item">📖 Overview</a>
+                <a href="#information-collect" class="quick-link-item">📊 Data Collection</a>
+                <a href="#hipaa" class="quick-link-item">🔒 HIPAA Privacy</a>
+                <a href="#patient-rights" class="quick-link-item">⚖️ Patient Rights</a>
+                <a href="#security" class="quick-link-item">🛡️ Security</a>
+                <a href="#cookies" class="quick-link-item">🍪 Cookies</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="content-section">
+        <div class="container">
+            <div class="compliance-badges">
+                <div class="badge">
+                    <span>🔒</span>
+                    <span>HIPAA Compliant</span>
+                </div>
+                <div class="badge">
+                    <span>🛡️</span>
+                    <span>PHI Protected</span>
+                </div>
+                <div class="badge">
+                    <span>✅</span>
+                    <span>HITECH Certified</span>
+                </div>
+                <div class="badge">
+                    <span>🌐</span>
+                    <span>GDPR Compliant</span>
+                </div>
+            </div>
+
+            <div class="content-wrapper">
+                <!-- Overview -->
+                <div class="section-block" id="overview">
+                    <h2><span class="section-icon">📖</span>Privacy Policy Overview</h2>
+                    
+                    <div class="highlight-box">
+                        <p><span class="info-icon">i</span><strong>Our Commitment:</strong> DoctorsMitra is committed to protecting the privacy and security of Protected Health Information (PHI) in accordance with HIPAA, HITECH, and other applicable healthcare privacy regulations.</p>
+                    </div>
+
+                    <p>This Privacy Policy explains how we collect, use, disclose, and safeguard your information and patient health information when you use our healthcare platform. This policy applies to:</p>
+                    
+                    <ul>
+                        <li><strong>Healthcare Professionals:</strong> Doctors, nurses, and medical staff using the platform</li>
+                        <li><strong>Healthcare Organizations:</strong> Hospitals, clinics, and medical practices</li>
+                        <li><strong>Patients:</strong> Individuals whose health information is stored and processed</li>
+                        <li><strong>Business Associates:</strong> Third parties who have access to PHI</li>
+                    </ul>
+
+                    <h3>Scope of This Policy</h3>
+                    <p>This privacy policy covers:</p>
+                    <ol>
+                        <li>Collection of Protected Health Information (PHI)</li>
+                        <li>Use and disclosure of health information</li>
+                        <li>Security measures and safeguards</li>
+                        <li>Patient rights under HIPAA</li>
+                        <li>Data retention and disposal practices</li>
+                        <li>International data transfers (where applicable)</li>
+                    </ol>
+                </div>
+
+                <!-- Information Collection -->
+                <div class="section-block" id="information-collect">
+                    <h2><span class="section-icon">📊</span>Information We Collect</h2>
+
+                    <h3>1. Protected Health Information (PHI)</h3>
+                    <p>We collect and process the following types of patient health information:</p>
+
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Category</th>
+                                <th>Information Types</th>
+                                <th>Purpose</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Demographics</strong></td>
+                                <td>Name, date of birth, gender, address, contact information</td>
+                                <td>Patient identification and communication</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Medical History</strong></td>
+                                <td>Past diagnoses, chronic conditions, allergies, medications</td>
+                                <td>Clinical decision support</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Clinical Data</strong></td>
+                                <td>Symptoms, vital signs, lab results, imaging reports</td>
+                                <td>Diagnosis and treatment planning</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Prescriptions</strong></td>
+                                <td>Medications, dosages, frequencies, duration</td>
+                                <td>Medication management and safety</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Treatment Records</strong></td>
+                                <td>Consultation notes, procedures, treatment plans</td>
+                                <td>Continuity of care</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Insurance Information</strong></td>
+                                <td>Insurance provider, policy numbers, coverage details</td>
+                                <td>Billing and claims processing</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>2. Healthcare Provider Information</h3>
+                    <ul>
+                        <li>Professional credentials and licenses</li>
+                        <li>Medical specialties and certifications</li>
+                        <li>Contact information and practice details</li>
+                        <li>Usage patterns and platform interactions</li>
+                    </ul>
+
+                    <h3>3. Technical Information</h3>
+                    <ul>
+                        <li>IP addresses and device information</li>
+                        <li>Browser type and operating system</li>
+                        <li>Access logs and timestamps</li>
+                        <li>Session duration and page views</li>
+                    </ul>
+
+                    <div class="info-box">
+                        <p><strong>💡 Minimum Necessary Standard:</strong> We collect only the minimum amount of information necessary to provide healthcare services and maintain platform functionality, in accordance with HIPAA's minimum necessary principle.</p>
+                    </div>
+                </div>
+
+                <!-- HIPAA Privacy -->
+                <div class="section-block" id="hipaa">
+                    <h2><span class="section-icon">🔒</span>HIPAA Privacy Rule Compliance</h2>
+
+                    <h3>Permitted Uses and Disclosures</h3>
+                    <p>Under HIPAA, we may use and disclose PHI without patient authorization for:</p>
+
+                    <div class="highlight-box">
+                        <h4>Treatment, Payment, and Healthcare Operations (TPO)</h4>
+                        <ul>
+                            <li><strong>Treatment:</strong> Providing, coordinating, or managing healthcare and related services</li>
+                            <li><strong>Payment:</strong> Billing, claims processing, and reimbursement activities</li>
+                            <li><strong>Healthcare Operations:</strong> Quality assessment, training, and business management</li>
+                        </ul>
+                    </div>
+
+                    <h3>Required Disclosures</h3>
+                    <p>We are required to disclose PHI:</p>
+                    <ol>
+                        <li>To the patient or their personal representative upon request</li>
+                        <li>To the Department of Health and Human Services (HHS) for compliance investigations</li>
+                        <li>When required by law (court orders, subpoenas, public health reporting)</li>
+                    </ol>
+
+                    <h3>Permitted Disclosures Without Authorization</h3>
+                    <ul>
+                        <li><strong>Public Health Activities:</strong> Disease reporting, FDA notifications</li>
+                        <li><strong>Health Oversight:</strong> Audits, investigations, licensing</li>
+                        <li><strong>Judicial Proceedings:</strong> Court orders, subpoenas</li>
+                        <li><strong>Law Enforcement:</strong> Legal requirements, victim identification</li>
+                        <li><strong>Serious Threats:</strong> Preventing imminent harm to health or safety</li>
+                        <li><strong>Research:</strong> With IRB approval and proper safeguards</li>
+                    </ul>
+
+                    <h3>Disclosures Requiring Authorization</h3>
+                    <p>Patient authorization is required for:</p>
+                    <ul>
+                        <li>Marketing communications (with limited exceptions)</li>
+                        <li>Sale of PHI</li>
+                        <li>Psychotherapy notes (with limited exceptions)</li>
+                        <li>Most uses not covered by TPO or permitted disclosures</li>
+                    </ul>
+
+                    <div class="warning-box">
+                        <p><strong>⚠️ De-identification:</strong> We may use de-identified health information for research, analytics, and AI training. De-identified data has all 18 HIPAA identifiers removed and cannot reasonably be used to identify individuals.</p>
+                    </div>
+                </div>
+
+                <!-- Patient Rights -->
+                <div class="section-block" id="patient-rights">
+                    <h2><span class="section-icon">⚖️</span>Patient Rights Under HIPAA</h2>
+
+                    <p>Patients have the following rights regarding their health information:</p>
+
+                    <div class="rights-grid">
+                        <div class="right-card">
+                            <div class="right-icon">👁️</div>
+                            <h4>Right to Access</h4>
+                            <p>Request and receive copies of your medical records within 30 days</p>
+                        </div>
+
+                        <div class="right-card">
+                            <div class="right-icon">✏️</div>
+                            <h4>Right to Amend</h4>
+                            <p>Request corrections to inaccurate or incomplete health information</p>
+                        </div>
+
+                        <div class="right-card">
+                            <div class="right-icon">📋</div>
+                            <h4>Right to Accounting</h4>
+                            <p>Receive a list of disclosures made for purposes other than TPO</p>
+                        </div>
+
+                        <div class="right-card">
+                            <div class="right-icon">🚫</div>
+                            <h4>Right to Restrict</h4>
+                            <p>Request limitations on how your information is used or disclosed</p>
+                        </div>
+
+                        <div class="right-card">
+                            <div class="right-icon">📱</div>
+                            <h4>Right to Confidential Communications</h4>
+                            <p>Request to receive health information through specific means or locations</p>
+                        </div>
+
+                        <div class="right-card">
+                            <div class="right-icon">🗑️</div>
+                            <h4>Right to Deletion</h4>
+                            <p>Request deletion of health information (subject to legal retention requirements)</p>
+                        </div>
+                    </div>
+
+                    <h3>How to Exercise Your Rights</h3>
+                    <p>To exercise any of these rights:</p>
+                    <ol>
+                        <li>Submit a written request to our Privacy Officer</li>
+                        <li>Specify the right you wish to exercise</li>
+                        <li>Provide necessary identification verification</li>
+                        <li>We will respond within 30 days (may extend once by 30 days with written notice)</li>
+                    </ol>
+
+                    <div class="info-box">
+                        <p><strong>📧 Privacy Officer Contact:</strong> privacy@doctorsmitra.com | Phone: +91 98XXX XXXXX</p>
+                    </div>
+                </div>
+
+                <!-- Security Measures -->
+                <div class="section-block" id="security">
+                    <h2><span class="section-icon">🛡️</span>Security Safeguards & Protection</h2>
+
+                    <h3>Technical Safeguards</h3>
+                    <ul>
+                        <li><strong>Encryption:</strong>
+                            <ul>
+                                <li>Data in transit: TLS 1.3 encryption</li>
+                                <li>Data at rest: AES-256 encryption</li>
+                                <li>Database encryption with secure key management</li>
+                            </ul>
+                        </li>
+                        <li><strong>Access Controls:</strong>
+                            <ul>
+                                <li>Multi-factor authentication (MFA) required</li>
+                                <li>Role-based access control (RBAC)</li>
+                                <li>Automatic session timeout after inactivity</li>
+                                <li>IP whitelisting for administrative access</li>
+                            </ul>
+                        </li>
+                        <li><strong>Audit Controls:</strong>
+                            <ul>
+                                <li>Comprehensive logging of all PHI access</li>
+                                <li>Tamper-proof audit trails</li>
+                                <li>Regular log review and monitoring</li>
+                                <li>Automated anomaly detection</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h3>Physical Safeguards</h3>
+                    <ul>
+                        <li>SOC 2 Type II certified data centers</li>
+                        <li>24/7 physical security and surveillance</li>
+                        <li>Biometric access controls</li>
+                        <li>Redundant power and cooling systems</li>
+                        <li>Disaster recovery and business continuity plans</li>
+                    </ul>
+
+                <!-- Security Measures - COMPLETED SECTION -->
+                <div class="section-block" id="security">
+                    <h2><span class="section-icon">🛡️</span>Security Safeguards & Protection</h2>
+
+                    <h3>Technical Safeguards</h3>
+                    <ul>
+                        <li><strong>Encryption:</strong>
+                            <ul>
+                                <li>Data in transit: TLS 1.3 encryption</li>
+                                <li>Data at rest: AES-256 encryption</li>
+                                <li>Database encryption with secure key management</li>
+                            </ul>
+                        </li>
+                        <li><strong>Access Controls:</strong>
+                            <ul>
+                                <li>Multi-factor authentication (MFA) required</li>
+                                <li>Role-based access control (RBAC)</li>
+                                <li>Automatic session timeout after inactivity</li>
+                                <li>IP whitelisting for administrative access</li>
+                            </ul>
+                        </li>
+                        <li><strong>Audit Controls:</strong>
+                            <ul>
+                                <li>Comprehensive logging of all PHI access</li>
+                                <li>Tamper-proof audit trails</li>
+                                <li>Regular log review and monitoring</li>
+                                <li>Automated anomaly detection</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h3>Physical Safeguards</h3>
+                    <ul>
+                        <li>SOC 2 Type II certified data centers</li>
+                        <li>24/7 physical security and surveillance</li>
+                        <li>Biometric access controls</li>
+                        <li>Redundant power and cooling systems</li>
+                        <li>Disaster recovery and business continuity plans</li>
+                    </ul>
+
+                    <h3>Administrative Safeguards</h3>
+                    <ul>
+                        <li>Privacy and security training for all employees</li>
+                        <li>Security risk assessments conducted annually</li>
+                        <li>Incident response and breach notification procedures</li>
+                        <li>Business Associate Agreements (BAAs) with all third parties</li>
+                        <li>Regular security policy reviews and updates</li>
+                        <li>Designated Privacy Officer and Security Officer</li>
+                    </ul>
+
+                    <div class="highlight-box">
+                        <p><strong>🔐 Security Certifications:</strong> Our platform undergoes regular third-party security audits and maintains HIPAA Security Rule compliance, HITECH certification, and GDPR compliance for international operations.</p>
+                    </div>
+                </div>
+
+                <!-- Cookies & Tracking -->
+                <div class="section-block" id="cookies">
+                    <h2><span class="section-icon">🍪</span>Cookies & Tracking Technologies</h2>
+
+                    <p>We use cookies and similar tracking technologies to enhance user experience, analyze platform usage, and support security functions.</p>
+
+                    <h3>Types of Cookies We Use</h3>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Cookie Type</th>
+                                <th>Purpose</th>
+                                <th>Duration</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Essential Cookies</strong></td>
+                                <td>Authentication, security, session management</td>
+                                <td>Session</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Functional Cookies</strong></td>
+                                <td>Preferences, language settings, accessibility</td>
+                                <td>30 days</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Analytics Cookies</strong></td>
+                                <td>Platform usage, performance monitoring (anonymized)</td>
+                                <td>24 months</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Security Cookies</strong></td>
+                                <td>Fraud prevention, abuse detection</td>
+                                <td>Session</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Cookie Management</h3>
+                    <p>You can control cookies through your browser settings. However, disabling essential cookies may affect platform functionality and security features.</p>
+
+                    <div class="warning-box">
+                        <p><strong>⚠️ Analytics Data:</strong> Analytics cookies collect anonymized, aggregated data that cannot be linked to individual patients or healthcare providers. No Protected Health Information (PHI) is collected through analytics cookies.</p>
+                    </div>
+                </div>
+
+                <!-- Data Retention & Disposal -->
+                <div class="section-block">
+                    <h2><span class="section-icon">⏳</span>Data Retention & Disposal</h2>
+
+                    <h3>Retention Periods</h3>
+                    <p>We retain health information as required by law and professional standards:</p>
+                    <ul>
+                        <li><strong>Adult Patient Records:</strong> Minimum 7 years from last treatment date</li>
+                        <li><strong>Minor Patient Records:</strong> Until age 25 (or as per state regulations)</li>
+                        <li><strong>Financial Records:</strong> 10 years for billing and insurance records</li>
+                        <li><strong>Audit Logs:</strong> 6 years minimum for security and access logs</li>
+                        <li><strong>De-identified Data:</strong> Retained indefinitely for research and analytics</li>
+                    </ul>
+
+                    <h3>Secure Disposal Methods</h3>
+                    <ul>
+                        <li>Electronic data: Secure deletion using NIST 800-88 standards</li>
+                        <li>Physical records: Cross-cut shredding or incineration</li>
+                        <li>Storage media: Degaussing or physical destruction</li>
+                        <li>Documented disposal certificates for audit purposes</li>
+                    </ul>
+                </div>
+
+                <!-- Third-Party Disclosures -->
+                <div class="section-block">
+                    <h2><span class="section-icon">🤝</span>Third-Party Disclosures & Business Associates</h2>
+
+                    <p>We may share PHI with third-party service providers who act as our Business Associates under HIPAA:</p>
+
+                    <h3>Categories of Business Associates</h3>
+                    <ul>
+                        <li><strong>Cloud Infrastructure:</strong> AWS, Azure (with BAA in place)</li>
+                        <li><strong>Payment Processors:</strong> Stripe, PayPal (PCI DSS compliant)</li>
+                        <li><strong>Analytics Services:</strong> Google Analytics (anonymized data only)</li>
+                        <li><strong>Communication Tools:</strong> Email and SMS providers</li>
+                        <li><strong>Technical Support:</strong> Managed service providers</li>
+                    </ul>
+
+                    <h3>Safeguards with Business Associates</h3>
+                    <ul>
+                        <li>All Business Associates sign HIPAA Business Associate Agreements (BAAs)</li>
+                        <li>Regular security assessments of Business Associates</li>
+                        <li>Limitation of PHI access to minimum necessary</li>
+                        <li>Notification requirements for breaches or incidents</li>
+                    </ul>
+
+                    <div class="info-box">
+                        <p><strong>📝 BAA Compliance:</strong> All third parties with access to PHI are contractually obligated to maintain HIPAA compliance and implement appropriate safeguards.</p>
+                    </div>
+                </div>
+
+                <!-- Breach Notification -->
+                <div class="section-block">
+                    <h2><span class="section-icon">🚨</span>Breach Notification Policy</h2>
+
+                    <h3>Definition of a Breach</h3>
+                    <p>A breach is defined as the unauthorized acquisition, access, use, or disclosure of PHI that compromises the security or privacy of the information.</p>
+
+                    <h3>Notification Procedures</h3>
+                    <ol>
+                        <li><strong>Investigation:</strong> Immediate investigation of suspected breaches within 24 hours</li>
+                        <li><strong>Risk Assessment:</strong> Determination if breach poses significant risk</li>
+                        <li><strong>Individual Notification:</strong> Written notice to affected individuals within 60 days</li>
+                        <li><strong>HHS Notification:</strong> Report to Department of Health and Human Services</li>
+                        <li><strong>Media Notification:</strong> For breaches affecting 500+ individuals</li>
+                        <li><strong>Remediation:</strong> Implementation of corrective actions</li>
+                    </ol>
+
+                    <h3>Notification Contents</h3>
+                    <p>Breach notifications will include:</p>
+                    <ul>
+                        <li>Description of the breach and information involved</li>
+                        <li>Steps individuals should take to protect themselves</li>
+                        <li>Description of our investigation and remediation efforts</li>
+                        <li>Contact information for questions and assistance</li>
+                    </ul>
+                </div>
+
+                <!-- International Data Transfers -->
+                <div class="section-block">
+                    <h2><span class="section-icon">🌐</span>International Data Transfers</h2>
+
+                    <h3>Data Storage Locations</h3>
+                    <p>Our primary data centers are located in:</p>
+                    <ul>
+                        <li><strong>Primary:</strong> Mumbai, India (for Indian healthcare providers)</li>
+                        <li><strong>Backup:</strong> Singapore (disaster recovery)</li>
+                        <li><strong>EU Operations:</strong> Frankfurt, Germany (GDPR compliant)</li>
+                        <li><strong>US Operations:</strong> Virginia, USA (HIPAA compliant)</li>
+                    </ul>
+
+                    <h3>Safeguards for International Transfers</h3>
+                    <ul>
+                        <li>Standard Contractual Clauses (SCCs) for EU/EEA data transfers</li>
+                        <li>Adequacy decisions for recognized jurisdictions</li>
+                        <li>Encryption during international transfers</li>
+                        <li>Jurisdiction-specific privacy policies where required</li>
+                    </ul>
+
+                    <div class="warning-box">
+                        <p><strong>⚠️ Cross-Border Healthcare:</strong> When healthcare providers in different jurisdictions access patient records, additional consents may be required based on local regulations.</p>
+                    </div>
+                </div>
+
+                <!-- Children's Privacy -->
+                <div class="section-block">
+                    <h2><span class="section-icon">👶</span>Children's Privacy Protection</h2>
+
+                    <p>We comply with the Children's Online Privacy Protection Act (COPPA) and additional protections for pediatric health information.</p>
+
+                    <h3>Special Protections for Pediatric PHI</h3>
+                    <ul>
+                        <li>Parental/guardian consent required for minors under 18</li>
+                        <li>Additional access restrictions for sensitive pediatric information</li>
+                        <li>Age-appropriate privacy notices</li>
+                        <li>Special retention rules for pediatric records</li>
+                    </ul>
+
+                    <h3>Age of Consent by Jurisdiction</h3>
+                    <ul>
+                        <li><strong>India:</strong> 18 years (Guardian consent required below 18)</li>
+                        <li><strong>United States:</strong> Varies by state (typically 13-18)</li>
+                        <li><strong>European Union:</strong> 16 years (may vary by member state)</li>
+                        <li><strong>Emergency Treatment:</strong> Consent requirements may be waived</li>
+                    </ul>
+                </div>
+
+                <!-- Policy Changes -->
+                <div class="section-block">
+                    <h2><span class="section-icon">🔄</span>Changes to This Privacy Policy</h2>
+
+                    <h3>Update Procedures</h3>
+                    <p>We may update this Privacy Policy periodically to reflect:</p>
+                    <ul>
+                        <li>Changes in healthcare privacy regulations</li>
+                        <li>New features or services on our platform</li>
+                        <li>Feedback from users and stakeholders</li>
+                        <li>Security enhancements and best practices</li>
+                    </ul>
+
+                    <h3>Notification of Changes</h3>
+                    <p>We will notify users of material changes by:</p>
+                    <ol>
+                        <li>Posting the updated policy on our website with a new "Last Updated" date</li>
+                        <li>Sending email notifications to registered users</li>
+                        <li>In-platform notifications for healthcare providers</li>
+                        <li>Providing a 30-day comment period for significant changes</li>
+                    </ol>
+
+                    <div class="highlight-box">
+                        <p><strong>📋 Policy Archive:</strong> Previous versions of this Privacy Policy are available upon request from our Privacy Officer.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <h2>Contact Our Privacy Team</h2>
+            <p>For privacy-related questions, concerns, or to exercise your rights</p>
+            
+            <div class="contact-cards">
+                <div class="contact-card">
+                    <div class="contact-card-icon">👤</div>
+                    <h3>Privacy Officer</h3>
+                    <p>Dr. Anjali Sharma</p>
+                    <p>privacy@doctorsmitra.com</p>
+                    <p>+91 98XXX XXXXX</p>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-card-icon">🛡️</div>
+                    <h3>Security Officer</h3>
+                    <p>Rajesh Kumar</p>
+                    <p>security@doctorsmitra.com</p>
+                    <p>+91 97XXX XXXXX</p>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-card-icon">📞</div>
+                    <h3>Emergency Contact</h3>
+                    <p>24/7 Security Hotline</p>
+                    <p>emergency@doctorsmitra.com</p>
+                    <p>+91 1800-XXX-XXXX</p>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-card-icon">📬</div>
+                    <h3>Mailing Address</h3>
+                    <p>DoctorsMitra Privacy Office</p>
+                    <p>Level 5, Tech Park,</p>
+                    <p>Mumbai - 400093, India</p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 3rem;">
+                <h3>Complaints</h3>
+                <p>If you believe your privacy rights have been violated, you may file a complaint with:</p>
+                <p style="margin-top: 1rem;">
+                    <strong>Office for Civil Rights (OCR)</strong><br>
+                    U.S. Department of Health and Human Services<br>
+                    <strong>Indian Residents:</strong> State Medical Councils & Data Protection Authority (when established)
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Note -->
+   <div id="footer"></div>
+    <script>
+        fetch('partials/footer.html')
+            .then(response => response.text())
+            .then(html => document.getElementById('footer').innerHTML = html);
+    </script>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" onclick="scrollToTop()">↑</button>
+
+    <script>
+        // Set current date
+        document.getElementById('currentDate').textContent = new Date().toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+
+        // Scroll to top functionality
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Show scroll to top button
+        window.addEventListener('scroll', function() {
+            const scrollTopBtn = document.querySelector('.scroll-top');
+            if (window.scrollY > 500) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add active class to quick links when scrolling
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('.section-block');
+            const navLinks = document.querySelectorAll('.quick-link-item');
+            
+            let currentSection = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 150;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                    currentSection = '#' + section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === currentSection) {
+                    link.classList.add('active');
+                    link.style.background = 'linear-gradient(135deg, var(--primary), var(--accent))';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
